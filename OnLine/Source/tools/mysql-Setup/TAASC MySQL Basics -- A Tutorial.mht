@@ -1,0 +1,1484 @@
+From: <ÓÉ Microsoft Internet Explorer 5 ±£´æ>
+Subject: TAASC: MySQL Basics -- A Tutorial
+Date: Fri, 2 Nov 2001 11:56:44 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	boundary="----=_NextPart_000_0000_01C16395.715BC0C0";
+	type="text/html"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2600.0000
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0000_01C16395.715BC0C0
+Content-Type: text/html;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.analysisandsolutions.com/code/mybasic.htm
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<?xml version=3D"1.0" standalone=3D"no"?><HTML lang=3Den xml:lang=3D"en" =
+
+xmlns=3D"http://www.w3.org/1999/xhtml"><HEAD><TITLE>TAASC: MySQL Basics =
+-- A Tutorial</TITLE>
+<META content=3D"text/html; charset=3Diso-8859-1" =
+http-equiv=3DContent-Type>
+<META content=3D"The Analysis and Solutions Company" name=3Dauthor>
+<META content=3D"MSHTML 5.00.2614.3500" name=3DGENERATOR>
+<META=20
+content=3D"Tips for installing MySQL on Windows machines. Also provides =
+step by step instructions on creating and maintaining MySQL databases =
+using basic SQL commands."=20
+name=3Ddescription>
+<META=20
+content=3D"MySQL, tutorials, help, tips, instructions, windows, =
+databases, SQL"=20
+name=3Dkeywords>
+<SCRIPT language=3Djavascript1.1 type=3Dtext/javascript>=0A=
+<!--=0A=
+ var codeOn =3D new Image();  codeOn.src =3D "../graphics/code-o.gif";=0A=
+ var codeOf =3D new Image();  codeOf.src =3D "../graphics/code-b.gif";=0A=
+ var examplesOn =3D new Image();  examplesOn.src =3D =
+"../graphics/examples-o.gif";=0A=
+ var examplesOf =3D new Image();  examplesOf.src =3D =
+"../graphics/examples-b.gif";=0A=
+ var researchOn =3D new Image();  researchOn.src =3D =
+"../graphics/research-o.gif";=0A=
+ var researchOf =3D new Image();  researchOf.src =3D =
+"../graphics/research-b.gif";=0A=
+ var webOn =3D new Image();  webOn.src =3D "../graphics/web-o.gif";=0A=
+ var webOf =3D new Image();  webOf.src =3D "../graphics/web-b.gif";=0A=
+ var subsqlOn =3D new Image();  subsqlOn.src =3D =
+"../graphics/codes-sql-o.gif";=0A=
+ var subsqlOf =3D new Image();  subsqlOf.src =3D =
+"../graphics/codes-sql-b.gif";=0A=
+ var subformOn =3D new Image();  subformOn.src =3D =
+"../graphics/codes-form-o.gif";=0A=
+ var subformOf =3D new Image();  subformOf.src =3D =
+"../graphics/codes-form-b.gif";=0A=
+ var sublayoutOn =3D new Image();  sublayoutOn.src =3D =
+"../graphics/codes-layout-o.gif";=0A=
+ var sublayoutOf =3D new Image();  sublayoutOf.src =3D =
+"../graphics/codes-layout-b.gif";=0A=
+ function ov(button) {=0A=
+  document.images[button].src =3D eval(button + "On.src");=0A=
+ }=0A=
+ function ou(button) {=0A=
+  document.images[button].src =3D eval(button + "Of.src");=0A=
+ }=0A=
+ //-->=0A=
+</SCRIPT>
+</HEAD>
+<BODY aLink=3D#cc0000 bgColor=3D#006600 link=3D#99ff00 text=3D#ffffff =
+vLink=3D#cccc99>
+<TABLE border=3D0 width=3D"100%" summary=3D"Logo and Navigation.">
+  <TBODY>
+  <TR vAlign=3Dtop>
+    <TD><A href=3D"http://www.analysisandsolutions.com/"><IMG=20
+      alt=3D"Logo: The Analysis and Solutions Company" border=3D0 =
+height=3D86=20
+      src=3D"http://www.analysisandsolutions.com/graphics/logosm.gif"=20
+      width=3D210></A></TD>
+    <TD align=3Dright>
+      <TABLE border=3D0 cellPadding=3D0 cellSpacing=3D0 width=3D400=20
+      summary=3D"Navigation System.">
+        <TBODY>
+        <TR>
+          <TD height=3D20 width=3D100><A=20
+            href=3D"http://www.analysisandsolutions.com/code/"=20
+            onmouseout=3D"ou('code');" onmouseover=3D"ov('code');"><IMG=20
+            alt=3D"Computer Code and Tutorials" border=3D0 height=3D20 =
+name=3Dcode=20
+            =
+src=3D"http://www.analysisandsolutions.com/graphics/code-b.gif"=20
+            width=3D100></A></TD>
+          <TD height=3D20 width=3D100><A=20
+            href=3D"http://www.analysisandsolutions.com/examples/"=20
+            onmouseout=3D"ou('examples');" =
+onmouseover=3D"ov('examples');"><IMG=20
+            alt=3D"Project Examples" border=3D0 height=3D20 =
+name=3Dexamples=20
+            =
+src=3D"http://www.analysisandsolutions.com/graphics/examples-b.gif"=20
+            width=3D100></A></TD>
+          <TD height=3D20 width=3D100><A=20
+            href=3D"http://www.analysisandsolutions.com/research/"=20
+            onmouseout=3D"ou('research');" =
+onmouseover=3D"ov('research');"><IMG=20
+            alt=3DResearch border=3D0 height=3D20 name=3Dresearch=20
+            =
+src=3D"http://www.analysisandsolutions.com/graphics/research-b.gif"=20
+            width=3D100></A></TD>
+          <TD height=3D20 width=3D100><A=20
+            href=3D"http://www.analysisandsolutions.com/web.htm"=20
+            onmouseout=3D"ou('web');" onmouseover=3D"ov('web');"><IMG=20
+            alt=3D"Web Design" border=3D0 height=3D20 name=3Dweb=20
+            =
+src=3D"http://www.analysisandsolutions.com/graphics/web-b.gif"=20
+            width=3D100></A></TD></TR>
+        <TR vAlign=3Dtop>
+          <TD height=3D41 width=3D100><IMG height=3D2=20
+            =
+src=3D"http://www.analysisandsolutions.com/graphics/subspace.gif"=20
+            width=3D100><BR><A=20
+            href=3D"http://www.analysisandsolutions.com/code/sql/"=20
+            onmouseout=3D"ou('subsql');" =
+onmouseover=3D"ov('subsql');"><IMG=20
+            alt=3D"SQL Solution" border=3D0 height=3D13 name=3Dsubsql=20
+            =
+src=3D"http://www.analysisandsolutions.com/graphics/codes-sql-b.gif"=20
+            width=3D100></A><BR><A=20
+            href=3D"http://www.analysisandsolutions.com/code/form/"=20
+            onmouseout=3D"ou('subform');" =
+onmouseover=3D"ov('subform');"><IMG=20
+            alt=3D"Form Solution" border=3D0 height=3D13 name=3Dsubform=20
+            =
+src=3D"http://www.analysisandsolutions.com/graphics/codes-form-b.gif"=20
+            width=3D100></A><BR><A=20
+            href=3D"http://www.analysisandsolutions.com/code/layout/"=20
+            onmouseout=3D"ou('sublayout');" =
+onmouseover=3D"ov('sublayout');"><IMG=20
+            alt=3D"Layout Solution" border=3D0 height=3D13 =
+name=3Dsublayout=20
+            =
+src=3D"http://www.analysisandsolutions.com/graphics/codes-layout-b.gif"=20
+            width=3D100></A></TD>
+          <TD height=3D41 width=3D100></TD>
+          <TD height=3D41 width=3D100></TD>
+          <TD height=3D41 =
+width=3D100></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<H1>MySQL Basics -- A Tutorial</H1>
+<H2>Introduction</H2>
+<TABLE align=3Dright border=3D1 width=3D"25%" summary=3D"Ad for MySQL by =
+Paul DuBois">
+  <TBODY>
+  <TR>
+    <TD align=3Dmiddle><SMALL>advertisement <BR><IMG alt=3D"Cover Art"=20
+      =
+src=3D"http://images.amazon.com/images/P/0735709211.01.LZZZZZZZ.jpg"=20
+      width=3D100> <BR><CITE>MySQL</CITE>, by Paul DuBois, has received =
+excellent=20
+      reviews. I've read it myself and must concur. He's a consistent=20
+      contributor to the MySQL mailing list. Please <A=20
+      =
+href=3D"http://www.amazon.com/exec/obidos/ASIN/0735709211/theanalsoluco">=
+buy=20
+      it now</A> to help defray my costs incurred providing this =
+important page.=20
+      <BR>Thanks! </SMALL></TD></TR></TBODY></TABLE>
+<P>Welcome. These instructions provide new <A=20
+href=3D"http://www.mysql.com/">MySQL</A> users with <EM>very basic</EM>, =
+step by=20
+step, instructions on how to get started.</P>
+<P>MySQL runs under a broad array of operating systems. The MySQL =
+commands=20
+discussed here apply to all platforms. The installation instructions in=20
+particular are guaranteed to work if the following conditions are =
+true:</P>
+<UL>
+  <LI>You're using Windows NT 4.0 machine and MySQL's Windows =
+executables. I've=20
+  been told these instructions also work for Windows 2000.=20
+  <LI>MySQL is installed on the <CODE>c:</CODE> drive in the =
+<CODE>mysql</CODE>=20
+  directory.=20
+  <LI>MySQL is set to use English. </LI></UL>
+<P>If your conditions are different, the instructions should still work, =
+but=20
+keep an eye out for slight differences, like which working directory =
+you'll need=20
+to be in.</P>
+<P>The commands you need to type are displayed in the <CODE><B>bold =
+fixed width=20
+font</B></CODE>. Resulting screen text is shown here in <CODE>standard =
+fixed=20
+width font</CODE>.</P>&nbsp;
+<H2>Contents</H2>
+<UL>
+  <LI><A=20
+  =
+href=3D"http://www.analysisandsolutions.com/code/mybasic.htm#installation=
+">Windows=20
+  2000 and NT 4.0 Installation</A>=20
+  <LI><A=20
+  =
+href=3D"http://www.analysisandsolutions.com/code/mybasic.htm#otherwin">Qu=
+ick=20
+  Tips for Other Windows Operating Systems</A>=20
+  <LI><A=20
+  =
+href=3D"http://www.analysisandsolutions.com/code/mybasic.htm#creating">Cr=
+eating=20
+  a Simple Database and Displaying its Structure</A>=20
+  <LI><A=20
+  =
+href=3D"http://www.analysisandsolutions.com/code/mybasic.htm#putting">Put=
+ting=20
+  Data into a Table</A>=20
+  <LI><A=20
+  =
+href=3D"http://www.analysisandsolutions.com/code/mybasic.htm#adding">Addi=
+ng=20
+  Fields</A>=20
+  <LI><A=20
+  =
+href=3D"http://www.analysisandsolutions.com/code/mybasic.htm#multiple">Mu=
+lti-line=20
+  Command Entry</A>=20
+  <LI><A=20
+  =
+href=3D"http://www.analysisandsolutions.com/code/mybasic.htm#insert">Inse=
+rt Some=20
+  More Records into the Table</A>=20
+  <LI><A=20
+  =
+href=3D"http://www.analysisandsolutions.com/code/mybasic.htm#updating">Up=
+dating=20
+  Existing Records</A>=20
+  <LI><A=20
+  =
+href=3D"http://www.analysisandsolutions.com/code/mybasic.htm#deleting">De=
+leting=20
+  Records</A>=20
+  <LI><A =
+href=3D"http://www.analysisandsolutions.com/code/mybasic.htm#time">Time=20
+  to Call it Quits</A>=20
+  <LI><A =
+href=3D"http://www.analysisandsolutions.com/code/mybasic.htm#in">In=20
+  Closing</A>=20
+  <LI><A =
+href=3D"http://www.analysisandsolutions.com/code/mybasic.htm#bug">Don't=20
+  Bug Us!</A> </LI></UL>&nbsp;
+<H2><A id=3Dinstallation name=3Dinstallation>Windows 2000 and NT 4.0=20
+Installation</A></H2>
+<BLOCKQUOTE>If you don't already have MySQL on your system, you'll need =
+to=20
+  start by getting and installing it.=20
+  <OL>
+    <LI><A href=3D"http://www.mysql.com/downloads/index.html">Download=20
+    MySQL-Win32</A> version of the program.=20
+    <LI>Open up Windows Explorer.=20
+    <LI>Find the downloaded file and copy it into a temporary directory. =
+
+    <LI>Double click on the file. At this point, if you have a zip =
+utility, it=20
+    should start. If you don't have a program to unzip files, you'll =
+need to get=20
+    one. I'm partial to <A href=3D"http://www.pkware.com/">PKZIP for =
+Windows</A>.=20
+    <LI>Once the files are extracted, go back into Explorer and double =
+click on=20
+    Setup.exe.=20
+    <LI>Follow the instructions within the installation program. =
+<EM>Note: The=20
+    do not change the installation directory from the default=20
+    <CODE>c:\mysql</CODE>.</EM> If you want it installed somewhere else, =
+let the=20
+    instal go to <CODE>c:\mysql</CODE>, <EM>then</EM> do the following:=20
+    <OL type=3Da>
+      <LI>In Windows Explorer, go to the <CODE>C</CODE> drive and move =
+the=20
+      <CODE>mysql</CODE> directory to where you want it to be.=20
+      <LI>If you want the <CODE>data</CODE> directory to be in yet =
+another=20
+      place, use Windows Explorer to go into the mysql directory and =
+move the=20
+      <CODE>data</CODE> directory where you like.=20
+      <LI>Again, in Explorer, copy the file <CODE>my-example.cnf</CODE> =
+from the=20
+      <CODE>mysql</CODE> directory to the <CODE>c:\</CODE> drive and =
+change the=20
+      name of the copy to <CODE>my.cnf</CODE>.=20
+      <LI>Open up <CODE>c:\my.cnf</CODE> in Notepad (Start Menu: Program =
+|=20
+      Accessories | Notepad. Then in Notepad: File | Open).=20
+      <LI>The syntax of this file is <EM>very</EM> particular, so be =
+carefull...=20
+      The directives need to be separated by Line Feeds (ASCII 10), but=20
+      <EM>not</EM> Hard Returns. Line Feeds show up as a box in Notepad. =
+The=20
+      simplest thing to do is delete all the declarations you don't =
+need, but=20
+      keep those "squares" between the declarations taht you do need. If =
+you=20
+      need extra line feeds, just copy an existing one and paste it =
+where you=20
+      need it. Also, separate directories with forward slashses and put =
+slashes=20
+      on the end of the directory names. Here's what my file looks like: =
+
+      <BR><CODE>[mysqld] datadir=3Dx:/mysql/ basedir=3Dy:/Program=20
+      Files/mysql/</CODE> </LI></OL>
+    <LI>Delete the temporary directory <CODE>c:\msdownld.tmp</CODE> if =
+it still=20
+    exists.=20
+    <LI>Open up a MS-DOS Prompt window. The default location for =
+starting such=20
+    windows is: Start Menu | Programs | MS-DOS Prompt.=20
+    <LI>Note: for the rest of this tutorial, the <CODE>c:</CODE> drive =
+and the=20
+    <CODE>mysql</CODE> directory are used for demonstration purposes. If =
+you've=20
+    moved the MySQL programs to a different location, substitute those =
+as=20
+    appropriate.=20
+    <LI>Switch to the <CODE>c:</CODE> drive if you're not already there: =
+
+    <CODE>L:\&gt;<B>c:</B></CODE>.=20
+    <LI>Switch into the MySQL <CODE>bin</CODE> directory: =
+<CODE>C:\&gt;<B>cd=20
+    mysql\bin</B></CODE>=20
+    <LI>Issue a <CODE>dir</CODE> command to determine which <EM>one</EM> =
+of the=20
+    following methods you will use to install the daemon:=20
+    <OL type=3Da>
+      <LI>If there's a file named <CODE>mysqld-nt.exe</CODE>:=20
+      <BR><CODE>c:\mysql\bin\<B>mysqld-nt --install</B></CODE>=20
+      <LI>If <CODE>mysqld-nt.exe</CODE> is <EM>not</EM> there but you =
+have a=20
+      file named <CODE>mysqld-shareware.exe</CODE>:=20
+      <BR><CODE>c:\mysql\bin\<B>ren mysqld-shareware.exe =
+mysqld.exe</B></CODE>.=20
+      <BR><CODE>c:\mysql\bin\<B>mysqld --install</B></CODE>=20
+      <LI>If neither of those are there, just do this:=20
+      <BR><CODE>c:\mysql\bin\<B>mysqld --install</B></CODE> </LI></OL>
+    <LI>Close the DOS Prompt window: =
+<CODE>c:\mysql\bin\<B>exit</B></CODE>=20
+    <LI>Open up the Services Manager=20
+    <UL>
+      <LI>NT 4.0: Start Menu | Settings | Control Panel | Services=20
+      <LI>2000: Start Menu | Programs | Administrative Tools | Services =
+</LI></UL>
+    <LI>Highlight the line with "MySql" on it.=20
+    <LI>If the "Startup" column says "Manual" or "Disabled, click on the =
+
+    "Startup" button, hit the "Automatic" radio button and click OK.=20
+    <LI>Click on the Start button.=20
+    <LI>Close the Services Manager and the Control Panel.=20
+    <LI>Want to save some space? In the <CODE>mysql\share</CODE> =
+directory, you=20
+    can kill the directories for languages you don't need. English is =
+the=20
+    default. If you're using another language, do the deletes =
+<EM>after</EM>=20
+    you've set a <CODE>language</CODE> parameter in the =
+<CODE>my.cnf</CODE>=20
+    file.=20
+    <LI>Tada! </LI></OL></BLOCKQUOTE>&nbsp;
+<H2><A id=3Dotherwin name=3Dotherwin>Quick Tips for Other Windows =
+Operating=20
+Systems</A></H2>
+<BLOCKQUOTE>
+  <P>If you're using Windows 95 or 98, do <EM>not</EM> run <CODE>mysqld=20
+  --install</CODE>. These operating systems don't have the ability to =
+host a=20
+  "service." So, you need to run MySQL as a standalone application by =
+executing=20
+  the command <CODE>mysqld --standalone</CODE>.</P>
+  <P>I haven't run MySQL on these systems myself, so, for more =
+information,=20
+  check out the <A=20
+  =
+href=3D"http://marc.theaimsgroup.com/?l=3Dmysql&amp;w=3D2&amp;r=3D1&amp;s=
+=3Dinstall+win98&amp;q=3Db">MySQL=20
+  Mailing List Archive</A>.</P></BLOCKQUOTE>&nbsp;
+<H2><A id=3Dcreating name=3Dcreating>Creating a Simple Database and =
+Displaying its=20
+Structure</A></H2>
+<BLOCKQUOTE>
+  <H3>Open up a MS-DOS Prompt window</H3>The default location for =
+starting such=20
+  windows is: Start Menu | Programs | MS-DOS Prompt.=20
+  <H3>Get to the working directory</H3><PRE>F:\&gt;<B>c:</B>
+C:\&gt;<B>cd mysql\bin</B>
+
+</PRE>
+  <H3>Instruct MySQL to setup a new database</H3>
+  <P>All this really does is create a new subdirectory in your =
+c:\mysql\data=20
+  directory.</P><PRE>C:\mysql\bin&gt;<B>mysqladmin create database01</B>
+Database "database01" created.
+
+</PRE>
+  <H3>Startup MySQL</H3><PRE>C:\mysql\bin&gt;<B>mysql</B>
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 22 to server version: 3.21.29a-gamma-debug
+
+Type 'help' for help.
+
+</PRE>
+  <H3>Open the database</H3><PRE>mysql&gt; <B>use database01</B>
+Database changed
+
+</PRE>
+  <H3>Create a table</H3><PRE>mysql&gt; <B>create table table01 (field01 =
+integer,field02 char(10));</B>
+Query OK, 0 rows affected (0.00 sec)
+</PRE>
+  <P><IMG align=3Dtop alt=3D!=20
+  src=3D"http://www.analysisandsolutions.com/graphics/excl.gif">Enclose =
+entire=20
+  list of field names between one pair of parentheses. <BR><IMG =
+align=3Dtop alt=3D!=20
+  src=3D"http://www.analysisandsolutions.com/graphics/excl.gif">Commas =
+are used=20
+  between each field. <BR><IMG align=3Dtop alt=3Di=20
+  src=3D"http://www.analysisandsolutions.com/graphics/info.gif">A space =
+may be=20
+  used after the comma between fields. <BR><IMG align=3Dtop alt=3D!=20
+  src=3D"http://www.analysisandsolutions.com/graphics/excl.gif">A comma =
+is=20
+  <EM>not</EM> used after last field. <BR><IMG align=3Dtop alt=3D!=20
+  src=3D"http://www.analysisandsolutions.com/graphics/excl.gif">This, =
+and all SQL=20
+  statements, are concluded by a semicolon "<CODE><B>;</B></CODE>".</P>
+  <H3>List the tables</H3><PRE>mysql&gt; <B>show tables;</B>
++----------------------+
+| Tables in database01 |
++----------------------+
+| table01              |
+| table02              |
++----------------------+
+
+</PRE>
+  <H3>List the fields in a table</H3><PRE>mysql&gt; <B>show columns from =
+table01;</B>
++---------+----------+------+-----+---------+-------+
+| Field   | Type     | Null | Key | Default | Extra |
++---------+----------+------+-----+---------+-------+
+| field01 | int(11)  | YES  |     |         |       |
+| field02 | char(10) | YES  |     |         |       |
++---------+----------+------+-----+---------+-------+
+
+
+
+</PRE>
+  <P>Congratulations! Pretty straightforward, eh?</P></BLOCKQUOTE>&nbsp;
+<H2><A id=3Dputting name=3Dputting>Putting Data into a Table</A></H2>
+<BLOCKQUOTE>
+  <H3>Insert a record</H3><PRE>mysql&gt; <B>insert into table01 =
+(field01,field02) values (1,'first');</B>
+Query OK, 1 row affected (0.00 sec)
+</PRE>
+  <P><IMG align=3Dtop alt=3D!=20
+  src=3D"http://www.analysisandsolutions.com/graphics/excl.gif">Enclose =
+entire=20
+  list of field names between one pair of parentheses. <BR><IMG =
+align=3Dtop alt=3D!=20
+  src=3D"http://www.analysisandsolutions.com/graphics/excl.gif">Enclose =
+the values=20
+  to be inserted between <EM>another</EM> pair of parentheses. <BR><IMG=20
+  align=3Dtop alt=3D!=20
+  src=3D"http://www.analysisandsolutions.com/graphics/excl.gif">Commas =
+are used=20
+  between each field and between each value. <BR><IMG align=3Dtop =
+alt=3Di=20
+  src=3D"http://www.analysisandsolutions.com/graphics/info.gif">A space =
+may be=20
+  used after the comma between fields.</P>
+  <H3>List all the records in a table</H3><PRE>mysql&gt; <B>select * =
+from table01;</B>
++---------+---------+
+| field01 | field02 |
++---------+---------+
+|       1 | first   |
++---------+---------+
+
+
+</PRE>
+  <P>Excellent!</P></BLOCKQUOTE>&nbsp;
+<H2><A id=3Dadding name=3Dadding>Adding Fields</A></H2>
+<BLOCKQUOTE>
+  <H3>...one field at a time</H3><PRE>mysql&gt; <B>alter table table01 =
+add column field03 char(20);</B>
+Query OK, 1 row affected (0.04 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+</PRE>
+  <H3>...more than one at a time</H3><PRE>mysql&gt; <B>alter table =
+table01 add column field04 date,add column field05 time;</B>
+Query OK, 1 row affected (0.04 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+</PRE>
+  <P><IMG align=3Dtop alt=3D!=20
+  src=3D"http://www.analysisandsolutions.com/graphics/excl.gif">The "add =
+column"=20
+  must be restated for each column. <BR><IMG align=3Dtop alt=3D!=20
+  src=3D"http://www.analysisandsolutions.com/graphics/excl.gif">Commas =
+are used=20
+  between each add column statement. <BR><IMG align=3Dtop alt=3Di=20
+  src=3D"http://www.analysisandsolutions.com/graphics/info.gif">A space =
+may be=20
+  used after these commas.</P>
+  <P><IMG align=3Dtop alt=3Di=20
+  src=3D"http://www.analysisandsolutions.com/graphics/info.gif">The =
+MySQL Manual=20
+  fully explains each possible <A=20
+  =
+href=3D"http://www.mysql.com/documentation/mysql/bychapter/manual_Referen=
+ce.html#Column_types">column=20
+  data type</A>.</P>
+  <H3>Did it work?</H3><PRE>mysql&gt; <B>select * from table01;</B>
++---------+---------+---------+---------+---------+
+| field01 | field02 | field03 | field04 | field05 |
++---------+---------+---------+---------+---------+
+|       1 | first   | NULL    | NULL    | NULL    |
++---------+---------+---------+---------+---------+
+
+
+</PRE>Now we're getting somewhere! </BLOCKQUOTE>&nbsp;
+<H2><A id=3Dmultiple name=3Dmultiple>Multi-line Command Entry</A></H2>
+<BLOCKQUOTE>
+  <P>The MySQL command line interface allows you to put a statement on =
+one line=20
+  or spread it across multiple lines. There's no difference in syntax =
+between=20
+  the two. Using multiple lines allows you to break down the SQL =
+statement into=20
+  steps you may more easily comprehend.</P>
+  <P>In multiple line mode, the interpreter appends each line to the =
+prior=20
+  lines. This continues until you enter a semicolon =
+"<CODE><B>;</B></CODE>" to=20
+  close out the SQL statement. Once the semicolon is typed in and you =
+hit enter,=20
+  the statement is executed.</P>
+  <P>Here's an example of the same exact SQL statement entered both =
+ways:</P>
+  <TABLE border=3D3 cellPadding=3D5=20
+  summary=3D"Two ways to enter the same query. Top cell shows single =
+line entry. Bottom cell shows multiple line entry.">
+    <TBODY>
+    <TR>
+      <TD>
+        <P>Single Line Entry</P><PRE>mysql&gt; <B>create table table33 =
+(field01 integer,field02 char(30));</B></PRE></TD></TR>
+    <TR>
+      <TD>
+        <P>Multiple Line Entry</P><PRE>mysql&gt; <B>create table =
+table33</B>
+    -&gt; <B>(field01</B>
+    -&gt; <B>integer,</B>
+    -&gt; <B>field02</B>
+    -&gt; <B>char(30));</B></PRE></TD></TR></TBODY></TABLE>
+  <P><IMG align=3Dtop alt=3D!=20
+  src=3D"http://www.analysisandsolutions.com/graphics/excl.gif">Don't =
+break up=20
+  words:</P>
+  <TABLE border=3D3 cellPadding=3D5=20
+  summary=3D"When doing multiple line entry, don't break up words.">
+    <TBODY>
+    <TR>
+      <TH span=3D"col">Valid</TH>
+      <TH span=3D"col">Invalid</TH></TR>
+    <TR>
+      <TD><PRE>mysql&gt; <B>create table table33</B>
+    -&gt; <B>(field01</B>
+    -&gt; <B>integer,</B>
+    -&gt; <B>field02</B>
+    -&gt; <B>char(30));</B></PRE></TD>
+      <TD><PRE>mysql&gt; <B>create table table33</B>
+    -&gt; <B>(field01 <U>inte</U></B>
+    -&gt; <B><U>ger,</U></B>
+    -&gt; <B>field02</B>
+    -&gt; <B>char(30));</B></PRE></TD></TR></TBODY></TABLE>
+  <P><IMG align=3Dtop alt=3D!=20
+  src=3D"http://www.analysisandsolutions.com/graphics/excl.gif">When =
+inserting or=20
+  updating records, do not spread a field's string across multiple =
+lines,=20
+  otherwise the line breaks are stored in the record:</P>
+  <TABLE border=3D3 cellPadding=3D5=20
+  summary=3D"Top left cell: standard insert. Top right cell: insert with =
+line break. Bottom cell: results.">
+    <TBODY>
+    <TR>
+      <TD vAlign=3Dtop>
+        <P><B>
+        <CENTER>Standard Operation</CENTER></B>
+        <P></P><PRE>mysql&gt; <B>insert into table33 (field02)</B>
+    -&gt; <B>values</B>
+    -&gt; <B>('Who thought of foo?');</B></PRE></TD>
+      <TD>
+        <P><B>
+        <CENTER>Line Break Stored in Record</CENTER></B>
+        <P></P><PRE>mysql&gt; <B>insert into table33 (field02)</B>
+    -&gt; <B>values</B>
+    -&gt; <B>('Pooh thought</B>
+    -&gt; <B>of foo.');</B></PRE></TD></TR>
+    <TR>
+      <TD align=3Dmiddle colSpan=3D2>
+        <P><B>
+        <CENTER>Results</CENTER></B>
+        <P></P><PRE>mysql&gt; <B>select * from table33;</B>
+   +---------+---------------------+
+   | field01 | field02             |
+   +---------+---------------------+
+   |    NULL | Who thought of foo? |
+   |    NULL | Pooh thought        =20
+   of foo. |                       =20
+   +---------+---------------------+
+</PRE></TD></TR></TBODY></TABLE></BLOCKQUOTE>&nbsp;
+<H2><A id=3Dinsert name=3Dinsert>Insert Some More Records into the =
+Table</A></H2>
+<BLOCKQUOTE>
+  <H3>Add this record</H3><PRE>mysql&gt; <B>insert into table01 =
+(field01,field02,field03,field04,field05) values</B>
+    -&gt; <B>(2,'second','another','1999-10-23','10:30:00');</B>
+Query OK, 1 row affected (0.00 sec)
+</PRE>
+  <P><IMG align=3Dtop alt=3D!=20
+  src=3D"http://www.analysisandsolutions.com/graphics/excl.gif">Quotes =
+must go=20
+  around text values.</P>
+  <P><IMG align=3Dtop alt=3Di=20
+  src=3D"http://www.analysisandsolutions.com/graphics/info.gif">Standard =
+date=20
+  format is "yyyy-mm-dd". <BR><IMG align=3Dtop alt=3Di=20
+  src=3D"http://www.analysisandsolutions.com/graphics/info.gif">Standard =
+time=20
+  format is "hh:mm:ss". <BR><IMG align=3Dtop alt=3D!=20
+  src=3D"http://www.analysisandsolutions.com/graphics/excl.gif">Quotes =
+are=20
+  required around the standard date and time formats, noted above. =
+<BR><IMG=20
+  align=3Dtop alt=3Di=20
+  src=3D"http://www.analysisandsolutions.com/graphics/info.gif">Dates =
+may also be=20
+  entered as "yyyymmdd" and times as "hhmmss". If entered in this =
+format, values=20
+  don't need to be quoted.</P>
+  <P><IMG align=3Dtop alt=3Di=20
+  src=3D"http://www.analysisandsolutions.com/graphics/info.gif">Numeric =
+values do=20
+  <EM>not</EM> need to be quoted. This holds true regardless of the data =
+type a=20
+  column is formatted to contain (e.g. text, date, time, integer).</P>
+  <P><IMG align=3Dtop alt=3Di=20
+  src=3D"http://www.analysisandsolutions.com/graphics/info.gif">MySQL =
+has a useful=20
+  command buffer. The buffer stores the SQL statements you've entered =
+thus far.=20
+  Using it keeps you from having to retype the same commands over and =
+over.=20
+  Let's use this next step as an example.</P>
+  <H3>Add another record using the command buffer (and optional date and =
+time=20
+  formats)</H3>
+  <OL>
+    <LI>Hit the up arrow key twice.=20
+    <LI>Hit the ENTER key.=20
+    <LI>Type in the new values between a pair parentheses and stick a =
+closing=20
+    semicolon on the end. <BR><CODE><B>(3,'a third','more foo for=20
+    you',19991024,103004);</B></CODE>=20
+    <LI>Hit the ENTER key. </LI></OL>
+  <P>Voil=E0!</P>
+  <H3>Is it in there?</H3><PRE>mysql&gt; <B>select * from table01;</B>
++---------+-----------+------------------+------------+----------+
+| field01 | field02   | field03          | field04    | field05  |
++---------+-----------+------------------+------------+----------+
+|       1 | first     | NULL             | NULL       | NULL     |
+|       2 | second    | another          | 1999-10-23 | 10:30:00 |
+|       3 | a third   | more foo for you | 1999-10-24 | 10:30:01 |
++---------+-----------+------------------+------------+----------+
+
+
+</PRE>
+  <P>It's in there!</P>
+  <P>Now, we're almost done...</P></BLOCKQUOTE>&nbsp;
+<H2><A id=3Dupdating name=3Dupdating>Updating Existing Records</A></H2>
+<BLOCKQUOTE>
+  <H3>Modify one field at a time</H3>
+  <P><IMG align=3Dtop alt=3D!=20
+  src=3D"http://www.analysisandsolutions.com/graphics/excl.gif">Again, =
+be careful=20
+  with syntax. Quote marks need to go around text but not around =
+numbers.</P><PRE>mysql&gt; <B>update table01 set field03=3D'new info' =
+where field01=3D1;</B>
+Query OK, 1 row affected (0.00 sec)
+
+</PRE>
+  <H3>Change multiple fields at once</H3>
+  <P><IMG align=3Dtop alt=3D!=20
+  src=3D"http://www.analysisandsolutions.com/graphics/excl.gif">Remember =
+to put=20
+  commas between each field you're updating.</P><PRE>mysql&gt; <B>update =
+table01 set field04=3D19991022, field05=3D062218 where field01=3D1;</B>
+Query OK, 1 row affected (0.00 sec)
+
+</PRE>
+  <H3>So, what's up with our data?</H3><PRE>mysql&gt; <B>select * from =
+table01;</B>
++---------+-----------+------------------+------------+----------+
+| field01 | field02   | field03          | field04    | field05  |
++---------+-----------+------------------+------------+----------+
+|       1 | first     | new info         | 1999-10-22 | 06:22:18 |
+|       2 | second    | another          | 1999-10-23 | 10:30:00 |
+|       3 | third one | more foo for you | 1999-10-24 | 10:30:01 |
++---------+-----------+------------------+------------+----------+
+
+</PRE>
+  <H3>Update multiple records in one stroke</H3><PRE>mysql&gt; <B>update =
+table01 set field05=3D152901 where field04&gt;19990101;</B>
+Query OK, 3 rows affected (0.00 sec)
+
+</PRE>
+  <H3>Survey says...</H3><PRE>mysql&gt; <B>select * from table01;</B>
++---------+-----------+------------------+------------+----------+
+| field01 | field02   | field03          | field04    | field05  |
++---------+-----------+------------------+------------+----------+
+|       1 | first     | new info         | 1999-10-22 | 15:29:01 |
+|       2 | second    | another          | 1999-10-23 | 15:29:01 |
+|       3 | third one | more foo for you | 1999-10-24 | 15:29:01 |
++---------+-----------+------------------+------------+----------+
+
+</PRE>
+  <P>Wee haw!</P></BLOCKQUOTE>&nbsp;
+<H2><A id=3Ddeleting name=3Ddeleting>Deleting Records</A></H2>
+<BLOCKQUOTE>
+  <H3>The delete command</H3><PRE>mysql&gt; <B>delete from table01 where =
+field01=3D3;</B>
+Query OK, 1 row affected (0.01 sec)
+</PRE><PRE>mysql&gt; <B>select * from table01;</B>
++---------+---------+----------+------------+----------+
+| field01 | field02 | field03  | field04    | field05  |
++---------+---------+----------+------------+----------+
+|       1 | first   | new info | 1999-10-22 | 15:29:01 |
+|       2 | second  | another  | 1999-10-23 | 15:29:01 |
++---------+---------+----------+------------+----------+
+
+
+</PRE></BLOCKQUOTE>
+<H2><A id=3Dtime name=3Dtime>Time to Call it =
+Quits</A></H2><PRE>mysql&gt; <B>quit</B>
+Bye
+
+
+</PRE>&nbsp;
+<H2><A id=3Din name=3Din>In Closing</A></H2>
+<BLOCKQUOTE>
+  <P>Now you know some rudimentary commands for running a database in =
+MySQL.=20
+  Since MySQL is operated by executing SQL calls, you have a broad array =
+of very=20
+  powerful tools at your disposal. For instance, you're able to display =
+data=20
+  from several tables at once by joining related fields.</P>
+  <TABLE align=3Dright border=3D1 width=3D"25%"=20
+    summary=3D"Ad for MySQL by Paul DuBois"><TBODY>
+    <TR>
+      <TD align=3Dmiddle><SMALL>advertisement <BR><IMG alt=3D"Cover Art" =
+
+        =
+src=3D"http://images.amazon.com/images/P/0735709211.01.LZZZZZZZ.jpg"=20
+        width=3D100> <BR><CITE>MySQL</CITE>, by Paul DuBois, has =
+received=20
+        excellent reviews. I've read it myself and must concur. He's a=20
+        consistent contributor to the MySQL mailing list. Please <A=20
+        =
+href=3D"http://www.amazon.com/exec/obidos/ASIN/0735709211/theanalsoluco">=
+buy=20
+        it now</A> to help defray my costs incurred providing this =
+important=20
+        page. <BR>Thanks! </SMALL></TD></TR></TBODY></TABLE>
+  <P>Similarly, SQL permits complex displays, updates or deletions of =
+multiple=20
+  records which fit specific criteria. So, your next step toward mastery =
+is=20
+  learning all about SQL.</P>
+  <P>James Hoffman has put a tutorial page up on the web entitled <A=20
+  href=3D"http://w3.one.net/~jhoffman/sqltut.htm"><CITE>Introduction to =
+Structured=20
+  Query Language</CITE></A>. The <A=20
+  =
+href=3D"http://www.mysql.com/documentation/mysql/bychapter/manual_Introdu=
+ction.html#General-SQL">General=20
+  SQL Information</A> of the MySQL Manual lists books recommended by =
+many=20
+  members of their mailing list.</P>
+  <P>Another thing to note is MySQL offers good security features you'll =
+need to=20
+  use when operating on networks.</P>
+  <P>To learn more about MySQL and how to use it, <A=20
+  href=3D"http://www.mysql.com/documentation/">the manual</A> should be =
+your first=20
+  stop. Also, Paul DuBois' book, <CITE>MySQL</CITE>, comes highly =
+recommended=20
+  and you can <A=20
+  =
+href=3D"http://www.amazon.com/exec/obidos/ASIN/0735709211/theanalsoluco">=
+buy it=20
+  now</A> using this link. The <A=20
+  =
+href=3D"http://marc.theaimsgroup.com/?l=3Dmysql&amp;r=3D1&amp;w=3D2">MySQ=
+L Mailing=20
+  List Archive</A> is a <EM>tremendous</EM> resource.</P>
+  <P>If you'll be developing hypertext interfaces to your databases, =
+check out=20
+  our <A href=3D"http://www.analysisandsolutions.com/code/sql/">SQL =
+Solution&#8482;</A>.=20
+  It's a powerful, user friendly, platform independent API that will =
+make your=20
+  job a snap!</P>
+  <P>Also, if your scripts accept user input, the <A=20
+  href=3D"http://www.analysisandsolutions.com/code/form/">Form =
+Solution&#8482;</A> is a=20
+  handy tool for generating XML compliant date/time form elements, =
+cleaning user=20
+  input, validating and formatting date/time inputs, formatting =
+addresses to US=20
+  Postal Service standards and holding all variables submitted by a =
+form. The=20
+  result is improved security and data quality.</P></BLOCKQUOTE><BR=20
+clear=3Dall>&nbsp;
+<H2><A id=3Dbug name=3Dbug>Don't Bug Us!</A></H2>
+<BLOCKQUOTE>
+  <P>Folks, please read this disclaimer:</P>
+  <OL>
+    <LI>We are <EM>not</EM> the company that makes MySQL. It's made by =
+<A=20
+    href=3D"http://www.tcx.se/">TcX</A>.=20
+    <LI>We are <EM>not</EM> on the development team.=20
+    <LI>We put this page up here to help people. It gets over 600 hits =
+per day.=20
+    That's <EM>a lot</EM> of help.=20
+    <LI>We are unable to respond to inquiries seeking more free help. =
+</LI></OL>
+  <P>Of course, if you're interested in hiring our firm, we'll be glad =
+to hear=20
+  from you.</P></BLOCKQUOTE>&nbsp;
+<HR>
+
+<CENTER>
+<ADDRESS>The&nbsp;Analysis&nbsp;and&nbsp;Solutions&nbsp;Company.&nbsp;&nb=
+sp;&nbsp;&nbsp;More&nbsp;than&nbsp;just&nbsp;answers.&nbsp;Solutions.&#84=
+82;=20
+<BR>
+<HR width=3D"60%">
+<SMALL><B><BLINK>Stop!</BLINK> <BR>Before contacting us,<BR>please read =
+the=20
+disclaimer above.</B>=20
+<HR width=3D"10%">
+v: 718-854-0335<BR>f: 718-854-0409 <BR>w: <A=20
+href=3D"http://www.analysisandsolutions.com/">http://www.analysisandsolut=
+ions.com/</A>=20
+<BR>e: <A=20
+href=3D"mailto:info@analysisandsolutions.com">info@analysisandsolutions.c=
+om</A>=20
+<BR>m: 4015 7 Av #4AJ, &nbsp;Brooklyn NY &nbsp;11232=20
+<HR width=3D"10%">
+<B>Unfortunately, we are unable to respond to inquiries <BR>seeking pro =
+bono=20
+assistance on this matter. <BR>Thank you for understanding.</B>=20
+<HR width=3D"60%">
+If you are having problems printing this page, please read our <A=20
+href=3D"http://www.analysisandsolutions.com/printing.htm">Printing =
+FAQ</A>. <BR>
+<HR width=3D"60%">
+This URL: <A=20
+href=3D"http://www.analysisandsolutions.com/code/mybasic.htm">http://www.=
+analysisandsolutions.com/code/mybasic.htm</A>=20
+<BR>Last modified: 18 May 2001, 4:51 pm EDT <BR>=A9=20
+2001</SMALL></ADDRESS></CENTER></BODY></HTML>
+
+------=_NextPart_000_0000_01C16395.715BC0C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.analysisandsolutions.com/graphics/logosm.gif
+
+R0lGODlh0gBWALMAAAAAAP///////////////////////8zMzP//////////////////////////
+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
+AAA7
+
+------=_NextPart_000_0000_01C16395.715BC0C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.analysisandsolutions.com/graphics/code-b.gif
+
+R0lGODlhZAAUALMAAJmZmczMzABmAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAACwAAAAAZAAUAEAE/jDICeq8OGurZf1dKAbcuH0AJggkmppwrLJyfaF2fq13qWevWygIDK54
+MtDQ50o5LdCWk9KEVpukHQ8XYCElPKSYBiaPJ99vl4xmH9kek+vnUZ6u+DxWtBchOVtERYI9gnMd
+L4RxUYRKXER/XGBtZV5hbpc0aWZwnGtHa5MjfZVoWqahqX+pXZRlrqWTapo0V4WKdT5FJm+5klMx
+hz+SdC18wsXGSXF3uMF2GHN601bEVFW8mHCIure3iYmL4UFP0uDQirVK23dLhswqwVlZjVM4PpHQ
+n7SWr22W/GK90QZQFSh3+vKVmNXP4Cl/m2DtA8UQBil/OzCGOsOKFUePMpgyqIlFYRC8fyP3VSp4
+cCKzgWM2UQSVopeUY/p84YTxhdo8OXacNcOVM5rQocm6xYgAADs=
+
+------=_NextPart_000_0000_01C16395.715BC0C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.analysisandsolutions.com/graphics/examples-b.gif
+
+R0lGODlhZAAUALMAAJmZmczMzABmAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAACwAAAAAZAAUAEAE/jDISSkANWt9Z9/SJX6bCAYjeZ6CMLlrLHtBi6phlmKVOc7AoMYmLIZ+
+HYzv1Wo2bzserpdiEYWm4o9yzXQlTjCMaOtcybBamnnlgaLw6ime1encxtKUk+OXwVR4dnlqWHCE
+TC+JgIWNT49rkGORiWRQe1srbl02aWhioI4wGGeLap41oZp7HJmIMWGvq0ozrCV3KqyZSoIWc7Z0
+S7N0b1GyrZo5H7RclMtytkJfMcavpC69Ryh6edeXwdXZ0k6TnWjnos0uT6AfsafYrh7AG9Ni9p/p
+Zp6TbGFf4ub9UvFlTKN0CMt4C3VmjToZPqJdI2dunSSL/yr649eQ3bthELXqBDxm71igkQJNqjSZ
+JQIAOw==
+
+------=_NextPart_000_0000_01C16395.715BC0C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.analysisandsolutions.com/graphics/research-b.gif
+
+R0lGODlhZAAUALMAAJmZmczMzABmAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAACwAAAAAZAAUAEAE/jDISau9AWiA8+4et40jVprfRJIZJggUrIJ0Db5danG2yu+9oNC2+gV1
+k5dyWTE2nZdV9KN8aohQG06y5Wxj1cC3whTLuOfkeRy6AlFDX849Z/lOO+SUni960198Qn6Cd2ZT
+NYRaMoFcaodijmiQW0uMk2aMaSFwcZBommuRh2GRlZpgl5+BboUgeJ6GdTQidE6EWT2uibucvFdS
+eh66whS9ibOvtbd2fblPys1fpcfPd7CybMNEznwin5/HR9hN4MbFw7gtF5ZpPGWZa6VlVdNhOKUS
+6FJC9sPtMMYAJIPqEUGD1/Z4wvFOngt8mygVxAQGYRtrQ9qpCXXK3r16H5ZScQSlL4WrXM1i7UsJ
+pBUzl+h+xbISDSPLbuIkRAAAOw==
+
+------=_NextPart_000_0000_01C16395.715BC0C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.analysisandsolutions.com/graphics/web-b.gif
+
+R0lGODlhZAAUALMAAJmZmczMzABmAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAACwAAAAAZAAUAEAE/hDIGaqtE9ydN5deKF7gmGljWglsoLGCFZdhS9YzFdhq73s6FObT8el+
+SBwsZjq6drBV9BUVVS1C6fLacwJprtMz62kxryCejAl9blrHM3tt49Xla9GJjPUmMUV/fWBEe4Z8
+Um5qOyqLiHBCiyEUkl5iPnVtjGEreVFTZTklmYmZdnIxVZIkHVdTo3aam4RqtbF4taF5YSU0ZId+
+TYSsw6yNW4CBGssUfsWTiMnRf8/S1cTTWIJ621/PYsDBrotzOBzmdEaj3lmX1TZUF0zTan6QaavE
+soPnbphsqgDRwQVPV5FTCJfI+8Sw3LFUUCBy2mIGoMNEB1NR3Hcqkax8P1YQJtvnkWSeLHdCanzT
+sSS7dfKkaTFVbyAylqoaWqR4RxSKn7+CFLlmDdq1YDFjhvOFlNceJJe8qSBqNFsEAAA7
+
+------=_NextPart_000_0000_01C16395.715BC0C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.analysisandsolutions.com/graphics/subspace.gif
+
+R0lGODlhZAACAIAAAP///wBmACwAAAAAZAACAEACDIyPqcvtD6OctNrrCgA7
+
+------=_NextPart_000_0000_01C16395.715BC0C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.analysisandsolutions.com/graphics/codes-sql-b.gif
+
+R0lGODlhZAANAIAAAP///wBmACwAAAAAZAANAEACioyPqcvtDyMEFFUD8Mm63ZBdFUeSG1aCp8RQ
+XGclpqeIITyrYCqy/g8MCocxFG7V2rxkNOLP9bHcikvHKJbLwlSvqpPl/YrHNZd0GT6ndYsu+Yll
+sttUs84NZee5USAU/VGV0xIYp3c0NzXnt5d4OFhjqKF16Oj2hhLV+Ndmt9PzeXeVSYlpevpWAAA7
+
+------=_NextPart_000_0000_01C16395.715BC0C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.analysisandsolutions.com/graphics/codes-form-b.gif
+
+R0lGODlhZAANAIAAAP///wBmACwAAAAAZAANAEACj4yPqcvtDyMEFAFVQ72G6+OB3pVtXceN6KpK
+aBiuGpnWZxLP7P31fUnjuYbEovE4zCFxIoZSuHRSMj6QxdeqYkjXlBUr5EKj5LIZOZ2eZ1RMI7te
+KNMnLjAHe3nB9JH68yeR5keVlwUnAifWwtj1JUg3ZviIWCVWx7P34zhWNPd3+GgRGFmzaKKXGbfK
+SlYAADs=
+
+------=_NextPart_000_0000_01C16395.715BC0C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.analysisandsolutions.com/graphics/codes-layout-b.gif
+
+R0lGODlhZAANAIAAAP///wBmACwAAAAAZAANAEACmoyPqcvtDyMEFAF1QzVb5/p9S3dtIMeJqJdq
+R4Z1bgKXb8vWKx236qxj5X6SovGITEZgSgfzhsM0nkqKFcoDrpi27eN0+4l3rmBzdE6ri9Q12XJl
+tHfzZjvOTZnCcSwQT+cBJijSB9c3B6gVBpVIYrEYSdQ1Q2NlhlWDSUnkR1kWWDkpynb5wmlpAmao
+p7kn+MepWLkm43aLVAAAOw==
+
+------=_NextPart_000_0000_01C16395.715BC0C0
+Content-Type: image/jpeg
+Content-Transfer-Encoding: base64
+Content-Location: http://images.amazon.com/images/P/0735709211.01.LZZZZZZZ.jpg
+
+/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEP
+ERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4e
+Hh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAHbAXADASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDzvUbq
+6XULhVurhVErAASsAOT71B9svP8An8uf+/rf40upf8hG5/66t/M1Xrjbdz+nsFgMK8NTbpx+FdF2
+9CwLy8yM3lz1H/LVv8a9+03TbFtOtmazt2ZoVJJiBJ4HtXz0v3h9a+mNJjJ0u0OP+WKfyFbUnufn
+PiTh6NGnQ9nBLV7JIrDS9Px/x4W3/fpf8Keulad/z4Wv/flf8K0liJqRYq2Pyczk0jTe+n2n/flf
+8KlTR9Mxzp1of+2K/wCFaKx1MkZ/yKAMxdH0v/oG2h/7YL/hTm0nSEXdJYWKD1aFAP5VrLFhcnAG
+Op7V4Z8RtU1jWvEc2mWN/bXFtbTgKEmxHkLnBI6ntigD2IaLpRGf7NsyP+uC/wCFOXRNJ/6Bll/4
+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
+iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKxvHf8AyI+vf9g24/8ARTVs1jeO/wDkR9e/
+7Btx/wCimoA+A9S/5CNz/wBdX/mar1Y1L/kI3P8A11b+ZqvXG9z+qMD/ALrT/wAK/IdH/rF/3h/O
+v0H8Kf8AIr6X/wBekf8A6CK/PiP/AFi/7w/nX6EeFP8AkWNL/wCvSP8A9BFbUup+ZeJ+2H/7e/Q0
+6KKK2PyQKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKK
+ACiiigAooooAKKKKACiiigAooooAKKKKACsbx3/yI+vf9g24/wDRTVs1jeO/+RH17/sG3H/opqAP
+gPUv+Qjc/wDXV/5mq9WNS/5CNz/11b+ZqvXG9z+qMD/utP8Awr8kOj/1i/7w/nX6D+FP+RX0v/r0
+j/8AQRX58R/6xf8AeH86/Qjwp/yLGl/9ekf/AKCK2pbM/MvE/bD/APb36GnRRRWx+SBRRRQAUUUU
+AFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQA
+UUUUAFFFFABRRRQAVjeO/wDkR9e/7Btx/wCimrZrG8d/8iPr3/YNuP8A0U1AHwHqX/IRuf8Arq38
+zVerGp/8hG5/66t/M1Xrje5/VOB/3Wn/AIV+Q6P/AFi/7w/nX6D+FP8AkV9L/wCvSP8A9BFfnxH/
+AKxf94fzr9CPCn/IsaX/ANekf/oIralsz8x8T9sP/wBvfoadFFFbH5IFFFFABRRRQAUUUUAFFFFA
+BRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAF
+FFFABWN47/5EfXv+wbcf+imrZrG8d/8AIj69/wBg24/9FNQB8B6l/wAhG5/66t/M1XqxqX/IRuf+
+urfzNQVxvc/qnA/7rT/wr8hY/wDWL/vD+dfoR4U/5FjS/wDr0j/9BFfnvH/rE/3h/Ov0I8Kf8ixp
+f/XpH/6CK2pdT8x8T9sP/wBvfoadFFFbH5IFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRR
+QAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABWN47/5EfXv+wbcf
++imrZrG8d/8AIj69/wBg24/9FNQB8B6l/wAhG5/66t/M1XqxqX/IRuf+urfzNV643uf1Tgf91p/4
+V+SHR/6xf94fzr9B/Cn/ACLGl/8AXpH/AOgivz4j/wBYv+8P51+hHhT/AJFjS/8Ar0j/APQRW1LZ
+n5j4n7Yf/t79DTooorY/JAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAK
+KKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKxvHf/Ij69/2Dbj/0U1bNY3jv/kR9
+e/7Btx/6KagD4D1L/kI3P/XVv5mq9WNS/wCQjc/9dW/mar1xvc/qnA/7rT/wr8h0f+sX/eH86/Qj
+wp/yK+l/9ekf/oIr894/9Yv+8P51+hHhT/kWNL/69I//AEEVtS2Z+YeJ+2H/AO3v0NOiiitj8lCi
+iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+KACiiigAooooAKKKKACiiigArG8d/wDIj69/2Dbj/wBFNWzWN47/AORH17/sG3H/AKKagD4D1L/k
+I3P/AF1b+ZqvVjUv+Qjc/wDXVv5mq9cb3P6pwP8AutP/AAr8kOj/ANYv+8P51+hHhT/kWNL/AOvS
+P/0EV+e8f+sX/eH86/Qfwp/yK+l/9ekf/oIral1PzHxP2w//AG9+hqUUUVsfkgUUUUAFFFFABRRR
+QAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFA
+BRRRQAUUUUAFY3jv/kR9e/7Btx/6Katmsbx3/wAiPr3/AGDbj/0U1AHwHqX/ACEbn/rq38zVerGp
+f8hG5/66t/M1Xrje5/VGB/3Wn/hX5IdH/rF/3h/Ov0I8Kf8AIsaX/wBekf8A6CK/PeP/AFi/7w/n
+X6EeFP8AkWNL/wCvSP8A9BFbUup+ZeJ+2H/7e/Q06KKK2PyQKKKKACiiigAooooAKKKKACiiigAo
+oooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACsb
+x3/yI+vf9g24/wDRTVs1jeO/+RH17/sG3H/opqAPgPUv+Qjc/wDXVv5mq9WNS/5CNz/11b+ZqvXG
+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
+2Q==
+
+------=_NextPart_000_0000_01C16395.715BC0C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.analysisandsolutions.com/graphics/excl.gif
+
+R0lGODlhEgARALMAAAAAAL+/v8ugoPwAAAAAAP//APScEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAACH5BAEAAAEALAAAAAASABEAQARKMMgpB71zmMIBL4ZFDWRpnligfWG6foUHt+5Gp9UWc/eo
+dzOR6gcrgoQXDRJX+SxdwMJz9JFJcQOY9Zo0FpHZ4pYj0hjO6HTaEgEAOw==
+
+------=_NextPart_000_0000_01C16395.715BC0C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.analysisandsolutions.com/graphics/info.gif
+
+R0lGODlhEgAQALMAAAAA/7+/v8ugoAAAAAAAAP///7CyzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAACH5BAEAAAEALAAAAAASABAAQARJMMgAqq1zgsJ72d4nVWH5AZrhkZ2BaoDagYX7UvIaumM+
+7zdKxSAjWjKjYdEWxIVotVusxOLwKCYo5zV9ApPUp7RbsiGTFwwyAgA7
+
+------=_NextPart_000_0000_01C16395.715BC0C0--

@@ -1,0 +1,13 @@
+Installing the system files is only required if for some reason you are having drawing problems while running the DBManager. In some systems, specially those using old versions of the MFC, strange behaviour of the application like: high consume of memory or processor, drawing too slow, exception errors, can be fixed by just replacing the default MFC used by the applications.
+
+HOWTO INSTALL
+=============
+
+In case you need to replace the MFC just copy or move the files MFC42.DLL and MSVCRT.DLL to the DBManager installation folder.
+DO NOT copy these files to the System32 Windows folder. Some applications can't deal with different languages DLL and may not work correctly.
+
+If your system runs correctly it is not necessary to copy these files to the DBManager installation folder.
+
+Please, consult the forums (http://www.dbtools.com.br/EN/forums) to get more information. This is the default channel to get info about using the DBManager, report bugs and request new features.
+
+DBTools Support (support@dbtools.com.br)

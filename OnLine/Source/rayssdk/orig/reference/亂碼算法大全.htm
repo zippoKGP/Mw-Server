@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0060)http://chinaoak.myrice.com/download/material/system/code.htm -->
+<!-- saved from url=(0045)http://www.csdn.net/develop/article/6392.shtm --><HTML><HEAD><TITLE>乱码算法大全</TITLE>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+<META content=0 http-equiv=Expires><LINK href="乱码算法大全.files/news.css" 
+rel=stylesheet>
+<STYLE type=text/css>.fst {
+	BACKGROUND: #eeeecc; BORDER-LEFT: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; PADDING-BOTTOM: 0px; PADDING-LEFT: 15px; PADDING-RIGHT: 15px; PADDING-TOP: 0px; WIDTH: 770px
+}
+.fstdiv3 IMG {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-RIGHT: #ffffff 8px solid; BORDER-TOP: #ffffff 6px solid
+}
+</STYLE>
+
+<META content="MSHTML 5.00.2920.0" name=GENERATOR><LINK href="news.css" 
+rel=stylesheet></HEAD>
+<BODY aLink=#990000 bgColor=#ffffff bottomMargin=0 leftMargin=0 rightMargin=0 
+topMargin=0 marginwidth="0" marginheight="0">
+<CENTER>
+<DIV align=center>
+<DIV align=left class=fst>
+<DIV class=fstdiv3 id=print2><BR><BR>
+<P align=center>乱码算法大全</P>
+<P align=center>序</P>
+<P>&nbsp;&nbsp;&nbsp; 
+相信上过网的朋友们都遇见过“乱码”，也就是在浏览网页或看email时出现的不能辨认的字符。以前也有许多的文章介绍过“乱码”，不过他们的文章只是讲怎样辨别和怎样用工具解码，并没有详细介绍各种编码的算法的实现，本文将对互联网上最常用的几种编码的编码和解码算法作以详细的阐述。希望对想了解“乱码”算法或想在自己程序中实现这些功能朋友们有一些参考价值。本文的源程序用c语言写成，形式为函数，可直接使用。</P>
+<P>一. 常用编码<BR>1. uuencode<BR>&nbsp;&nbsp;&nbsp; uuencode 
+是将二进制文件以文本文件方式进行编码表示、以利于基于文本传输环境中进行二进制文件的传输/交换的编码方法之一， 在邮件系统/二进制新闻组中使用频率比较高，经常用于 
+attach 二进制文件。<BR>&nbsp;&nbsp;&nbsp; 
+这种编码的特征是：每一行开头用“m”标志。下面是我做的一个测试用的文件mogao.txt，编码为uuencode：<BR>begin 644 
+mogao.txt<BR>m"0d)("<A 
+href='mailto:`@(*&amp;vpm+"z\ocmzbt\\bkh;<-"@g7]]7?.fuo9v%ohzrpu]3&amp;n\:z'>`@(*&amp;vpm+"z\ocmzbt\\bkh;&lt;-"@g7]]7?.fuo9v%ohzrpu]3&amp;n\:z</A><BR>mu]6^hzat96qn970z+r\r,#(n,3$r+c(p+c$s,chr,z.il\g4l:&amp;c#0h)("`@<BR>m("<A 
+href="mailto:`@q*jxw\cmo/zyi-?wrm*cnfat='`z+r]m;v=a;ryb96yt:75n+fye=`t">`@q*jxw\cmo/zyi-?wrm*cnfat='`z+r]m;v=a;ryb96yt:75n+fye=`t</A>*<BR>m"0d)16ua:6qt;sim;v=a;t`s-s$n;f5t#0h)("<A 
+href="mailto:`@*bhj*bhj*bhj*bhj*bhj">`@*bhj*bhj*bhj*bhj*bhj</A><BR>m*bhj*bhj*bhj*bhj*bhj*bhj*bhj*bhj*bhj*bhj("`@("`@("`@("`@("`@<BR>m#0h)("<A 
+href="mailto:`@*b&quot;s_<'+o,?2y,jrp[2vo+*[m/c7wz.ll_w!r]?co*/*ll.tmkrr">`@*b"s_&lt;'+o,?2y,jrp[2vo+*[m/c7wz.ll_w!r]?co*/*ll.tmkrr</A><BR>mn\'ts\(j#0h)("<A 
+href="mailto:`@*bhj*bhj*bhj*bhj*bhj*bhj*bhj*bhj*bhj*bhj*bhj">`@*bhj*bhj*bhj*bhj*bhj*bhj*bhj*bhj*bhj*bhj*bhj</A><BR>,*bhj*bhj*bhj*bhj<BR>`<BR>end</P>
+<P>&nbsp;&nbsp;&nbsp; 
+你可以把它单独存成一个文件：mogao.uue，然后用winzip打开，解压即得mogao.txt。<BR>&nbsp;&nbsp;&nbsp; 
+uuencode的算法很简单，编码时它将3个字符顺序放入一个 24 位的缓冲区，缺字符的地方补零，然后将缓冲区截断成为 4 个部分，高位在先，每个部分 6 
+位，用下面的64个字符重新表示：<BR>"`!"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@abcdefghijklmnopqrstuvwxyz[\]^_"<BR>在文件的开头有“begin 
+xxx 
+被编码的文件名”，在文件的结尾有“end”，用来标志uue文件的开始和结束。编码时，每次读取源文件的45个字符，不足45个的用“null”补足为3的整数倍（如：23补为24），然后输入目标文件一个ascii为：“32+实际读取的字符数”的字符作为每一行的开始。读取的字符编码后输入目标文件，再输入一个“换行符”。如果源文件被编码完了，那么输入“`（ascii为96）”和一个“换行符”表示编码结束。<BR>&nbsp;&nbsp;&nbsp; 
+解码时它将4个字符分别转换为4个6位字符后，截取有用的后六位放入一个 24 位的缓冲区，即得3个二进制代码。<BR>&nbsp;&nbsp;&nbsp; 
+下面我给出uuencode编码和解码的c语言描述：<BR>/*uuencode编码*/<BR>void uue(unsigned char 
+chasc[3],unsigned char chuue[4])<BR>/*&nbsp; 
+<BR>chasc：未编码的二进制代码<BR>chuue：编码过的uue代码<BR>*/<BR>{int i,k=2;<BR>&nbsp;unsigned 
+char 
+t=null;<BR>&nbsp;for(i=0;i&lt;3;i++)<BR>&nbsp;{*(chuue+i)=*(chasc+i)&gt;&gt;k;<BR>&nbsp; 
+*(chuue+i)|=t;<BR>&nbsp; if(*(chuue+i)==null) *(chuue+i)+=96;<BR>&nbsp; else 
+*(chuue+i)+=32;<BR>&nbsp; t=*(chasc+i)&lt;&lt;(8-k);<BR>&nbsp; 
+t&gt;&gt;=2;<BR>&nbsp; 
+k+=2;<BR>&nbsp;}<BR>&nbsp;*(chuue+3)=*(chasc+2)&amp;63;<BR>&nbsp;if(*(chuue+3)==null) 
+*(chuue+3)+=96;<BR>&nbsp;else *(chuue+3)+=32;<BR>}</P>
+<P>/*uuencode解码*/<BR>void unuue（unsigned char chuue[4]，unsigned char 
+chasc[3]）<BR>/*&nbsp; <BR>chuue：未解码的uue代码<BR>chasc：解码过的二进制代码<BR>*/<BR>{int 
+i,k=2;<BR>&nbsp;unsigned char t=null;<BR>&nbsp;if(*chuue==96) 
+*chuue=null;<BR>&nbsp;else 
+*chuue-=32;<BR>&nbsp;for(i=0;i&lt;3;i++)<BR>&nbsp;{*(chasc+i)=*(chuue+i)&lt;&lt;k;<BR>&nbsp; 
+k+=2;<BR>&nbsp; if(*(chuue+i+1)==96) *(chuue+i+1)=null;<BR>&nbsp; else 
+*(chuue+i+1)-=32;<BR>&nbsp; t=*(chuue+i+1)&gt;&gt;8-k;<BR>&nbsp; 
+*(chasc+i)|=t;<BR>&nbsp;}<BR>}</P>
+<P>2. xxencode<BR>&nbsp;&nbsp;&nbsp; 提到uuencode不可能不提xxencode， xxencode的编码算法和 
+uuencode基本相同，但是使用的是不同的字符集。xxencode编码使用的字符是：<BR>“+-0123456789abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz”与 
+uuencode 相比，它的特殊字符更少。很多支持 uuencode 编解码的工具都同时支持 xxencode。<BR>&nbsp;&nbsp;&nbsp; 
+这种编码的特征是：每一行开头用“h”标志。下面是xxencode的一个例子：<BR>begin 644 
+mogao.txt<BR>h0ey760+u684qkh90uwjxhuwowwwfcpqb0ublxxltcapjnq3jcumkpxh4iwou<BR>hpxkycuvonklinleu9mwma16iah2m9x6k9x2naxcmaucdgwbigo4x1ec760+u<BR>h60+ul8esrwxhjdutdbtrmh8xiavor5+u9mxhpqrvpmtwnktoolji9atzr+o8<BR>h0ey7fkpvoklopndhpqrvpo+nbn2ipajo1ec760+u8wce8wce8wce8wce8wce<BR>h8wce8wce8wce8wce8wce8wce8wce8wce8wce8wce60+u60+u60+u60+u60+u<BR>h1ec760+u8w0nzq59jatgtaemkvgqj98vhdxlrucggzr-mxtxj8d8ggcohfmm<BR>hiw5onw6e1ec760+u8wce8wce8wce8wce8wce8wce8wce8wce8wce8wce8wce<BR>a8wce8wce8wce8wce<BR>+<BR>end</P>
+<P>&nbsp;&nbsp;&nbsp; 
+你可以把它单独存成一个文件：mogao.xxe，然后用winzip打开，解压即得mogao.txt。<BR>&nbsp;&nbsp;&nbsp; 
+xxencode的编码算法和uuencode基本相同，实现起来则更为简单，在此就不详述了。<BR>&nbsp;&nbsp;&nbsp; 
+下面给出xxencode编码和解码的c语言描述：<BR>/*xxencode编码*/<BR>&nbsp;void xxe（unsigned char 
+chasc[3],unsigned char 
+chxxe[4])<BR>/*<BR>chasc：未编码的二进制代码<BR>chxxe：编码过的xxe代码<BR>*/<BR>{int 
+i；<BR>&nbsp;static char set[]=<BR>&nbsp; 
+"+-0123456789abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz";<BR>&nbsp;chxxe[0]=chasc[0]&gt;&gt;2;<BR>&nbsp;chxxe[1]=(chasc[0]&lt;&lt;4)&amp;48|(chasc[1]&gt;&gt;4)&amp;15;<BR>&nbsp;chxxe[2]=(chasc[1]&lt;&lt;2)&amp;60|(chasc[2]&gt;&gt;6)&amp;3;<BR>&nbsp;chxxe[3]=chasc[2]&amp;63;<BR>&nbsp;for(i=0;i&lt;4;i++) 
+chxxe[i]=set[chxxe[i]];&nbsp;&nbsp;&nbsp;/*查表*/<BR>}<BR>/*需注意的是，xxencode文件正文部分中每一行的第一个字母是：从源文件中实际&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+读取的字符数的ascii值取后六位后用set[]查表得到的。*/<BR>/*xxencode解码*/<BR>unsigned char set(unsigned 
+char ch)&nbsp;&nbsp;&nbsp;&nbsp;/*查表函数*/<BR>{if(ch==43) ch=0;<BR>&nbsp;else 
+if(ch==45) ch=1;<BR>&nbsp;else if(ch&gt;=48&amp;&amp;ch&lt;=57) 
+ch-=46;<BR>&nbsp;else if(ch&gt;=65&amp;&amp;ch&lt;=90) ch-=53;<BR>&nbsp;else 
+if(ch&gt;=97&amp;&amp;ch&lt;=122) ch-=59;<BR>&nbsp;return ch;<BR>}</P>
+<P>void unxxe（unsigned char chxxe[4]，unsigned char 
+chasc[3]）<BR>/*<BR>chxxe：未解码的xxe代码<BR>chasc：解码过的二进制代码<BR>*/<BR>{int k=2 
+,i;<BR>&nbsp;unsigned char 
+t;<BR>&nbsp;t=null;<BR>&nbsp;*chxxe=set(*chxxe);<BR>&nbsp;for(i=0;i&lt;3;i++)<BR>&nbsp;{*(chxxe+i+1)=set(*(chxxe+i+1));<BR>&nbsp; 
+(chhex+i)=*(chxxe+i)&lt;&lt;k;<BR>&nbsp; k+=2;<BR>&nbsp; 
+t=*(chxxe+i+1)&gt;&gt;8-k;<BR>&nbsp; *(chhex+i)|=t;<BR>&nbsp;}<BR>}</P>
+<P>3. base64<BR>&nbsp;&nbsp;&nbsp; base64和下面将要介绍的quoted-printable都属于mime（多部分( 
+multi-part)、多媒体电子邮件和 www 
+超文本的一种编码标准，用于传送诸如图形、声音和传真等非文本数据）。mime定义在rfc1341中。<BR>&nbsp;&nbsp;&nbsp; 
+base64是现今在互联网上应用最多的一种编码，几乎所有的电子邮件软件头把它作为默认的二进制编码，它已经成了现今电子邮件编码的代名词。<BR>&nbsp;&nbsp;&nbsp; 
+下面是base64的一个例子，从例子中，您也可以看到base64与电子邮件的的紧密联系：<BR>content-type: 
+text/plain;charset="cn-gb"<BR>content-transfer-encoding: base64</P>
+<P>cqkjicagikg2wtlc68vjt6i088irobcncgnx99xfom1vz2fvo6yw19tgu8a619w+o6h0zwxuzxq6<BR>ly8ymdiumteyljiwljezmjoym6ops8nusagjdqojicagicagxkq438jtvp65pnf3ytkjumh0dha6<BR>ly9tb2dhby5izw50axvulm5lda0kcqkjrw1hawx0bzptb2dhb0aznzeubmv0dqojicagkioqkioq<BR>kioqkioqkioqkioqkioqkioqkioqkioqkioqkioqkioqkioqkioqicagicagicagicagicagdqoj<BR>icagkicz/chlvmfs5mqyw7s2vlk7tpjx36oss/3by9fjvkpksso0tryyu8h0z8iqdqojicagkioq<BR>kioqkioqkioqkioqkioqkioqkioqkioqkioqkioqkioqkioqkioqkioq</P>
+<P>&nbsp;&nbsp;&nbsp; 
+你可以把它单独存成一个文件，可以取名为：mogao.eml，双击可以用outlook打开（前两行为邮件的原始信息，从第四行开始为编码内容）。 
+<BR>&nbsp;&nbsp;&nbsp; base64的算法同uuencode的算法很接近，也很简单：它将字符流顺序放入一个 24 
+位的缓冲区，缺字符的地方补零。然后将缓冲区截断成为 4 个部分，高位在先，每个部分 6 
+位，用下面的64个字符重新表示：“abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz0123456789+/”。如果输入只有一个或两个字节，那么输出将用等号“=”补足。这可以隔断附加的信息造成编码的混乱。它每行一般为76个字符。<BR>&nbsp;&nbsp;&nbsp; 
+下面我给出base64的编码和解码的c语言描述：<BR>/*base64编码*/<BR>void base64(unsigned char 
+chasc[3],unsigned char chuue[4])<BR>/*&nbsp; <BR>&nbsp; 
+chasc：未编码的二进制代码<BR>&nbsp; chuue：编码过的base64代码<BR>*/<BR>{<BR>&nbsp;int 
+i,k=2;<BR>&nbsp;unsinged char t=null; 
+<BR>&nbsp;for(i=0;i&lt;3;i++)<BR>&nbsp;{<BR>&nbsp; 
+*(chuue+i)=*(chasc+i)&gt;&gt;k;<BR>&nbsp; *(chuue+i)|=t;<BR>&nbsp; 
+t=*(chasc+i)&lt;&lt;(8-k);<BR>&nbsp; t&gt;&gt;=2;<BR>&nbsp; 
+k+=2;<BR>&nbsp;}<BR>&nbsp;*(chuue+3)=*(chasc+2)&amp;63;</P>
+<P>&nbsp;for(i=0;i&lt;4;i++)<BR>&nbsp;&nbsp;&nbsp; 
+if((*(chuue+i)&gt;=0)&amp;&amp;(*(chuue+i)&lt;=25)) 
+*(chuue+i)+=65;<BR>&nbsp;&nbsp;&nbsp; else 
+if((*(chuue+i)&gt;=26)&amp;&amp;(*(chuue+i)&lt;=51)) 
+*(chuue+i)+=71;<BR>&nbsp;&nbsp;&nbsp; else 
+if((*(chuue+i)&gt;=52)&amp;&amp;(*(chuue+i)&lt;=61)) 
+*(chuue+i)-=4;<BR>&nbsp;&nbsp;&nbsp; else if(*(chuue+i)==62) 
+*(chuue+i)=43;<BR>&nbsp;&nbsp;&nbsp; else if(*(chuue+i)==63) *(chuue+i)=47;</P>
+<P>}<BR>/*base64解码*/<BR>void unbase64（unsigned char chuue[4]，unsigned char 
+chasc[3]）<BR>/*&nbsp; <BR>chuue：未解码的base64代码<BR>chasc：解码过的二进制代码<BR>*/<BR>{int 
+i,k=2;<BR>&nbsp;unsigned char 
+t=null;<BR>&nbsp;<BR>&nbsp;for(i=0;i&lt;4;i++)<BR>&nbsp;&nbsp;&nbsp;&nbsp; 
+if((*(chuue+i)&gt;=65)&amp;&amp;(*(chuue+i)&lt;=90)) 
+*(chuue+i)-=65;<BR>&nbsp;&nbsp;&nbsp;&nbsp; else 
+if((*(chuue+i)&gt;=97)&amp;&amp;(*(chuue+i)&lt;=122)) 
+*(chuue+i)-=71;<BR>&nbsp;&nbsp;&nbsp;&nbsp; else 
+if((*(chuue+i)&gt;=48)&amp;&amp;(*(chuue+i)&lt;=57)) 
+*(chuue+i)+=4;<BR>&nbsp;&nbsp;&nbsp;&nbsp; else if(*(chuue+i)==43) 
+*(chuue+i)=62;<BR>&nbsp;&nbsp;&nbsp;&nbsp; else if(*(chuue+i)==47) 
+*(chuue+i)=63;<BR>&nbsp;&nbsp;&nbsp;&nbsp; else if(*(chuue+i)==61) 
+*(chuue+i)=0;</P>
+<P>&nbsp;for(i=0;i&lt;3;i++)<BR>&nbsp;{*(chhex+i)=*(chuue+i)&lt;&lt;k;<BR>&nbsp; 
+k+=2;<BR>&nbsp; t=*(chuue+i+1)&gt;&gt;8-k;<BR>&nbsp; 
+*(chhex+i)|=t;<BR>&nbsp;}<BR>}</P>
+<P>4. quoted-printable<BR>&nbsp;&nbsp;&nbsp; quoted-printable简称qp， 
+一般用在email系统中。它通常用于少量文本方式的8位字符的编码，例如foxmail就用它做对主题和信体的编码。这种编码的应该是很好辨认的：它有大量的“=”。下面是它的一个例子：</P>
+<P>mime-version: 1.0<BR>content-transfer-encoding: quoted-printable</P>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+=a1=b6=c2=d2=c2=eb=cb=e3=b7=a8=b4=f3=c8=ab=a1=b7<BR>&nbsp;=d7=f7=d5=df:mogao=a3=ac=b0=d7=d4=c6=bb=c6=ba=d7=d5=be=a3=a8telnet://202.112.20.132:23=a3=a9=b3=c9=d4=b1=a1=a3<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+=c4=aa=b8=df=c8=ed=bc=fe=b9=a4=d7=f7=ca=d2=a3=bahttp://mogao.bentiun.net<BR>&nbsp;&nbsp;&nbsp;emailto:mogao@371.net<BR>&nbsp;&nbsp;&nbsp; 
+*********************************************&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<BR>&nbsp;&nbsp;&nbsp; * 
+=b3=fd=c1=cb=bc=c7=d2=e4=ca=b2=c3=b4=b6=bc=b2=bb=b4=f8=d7=df=a3=ac=b3=fd=c1=cb=d7=e3=bc=a3=ca=b2=c3=b4=b6=bc=b2=bb=c1=f4=cf=c2*<BR>&nbsp;&nbsp;&nbsp; 
+*********************************************</P>
+<P>&nbsp;&nbsp;&nbsp; 
+你可以把它单独存成一个文件，取名为：mogao.eml，双击可以用outlook打开（前两行为邮件的原始信息，从第四行开始为编码内容）。 
+<BR>&nbsp;&nbsp;&nbsp; 
+qp的算法可以说是最简单的也可以说是编码效率最低的（它的编码率是1:3），它是专门为了处理8位字符制定的。它的算法是：读一个字符，如果ascii码大于127，即字符的第8位是1的话，进行编码，否则忽略（有时也对7位字符编码）。编码很简单，看下面的c语言描述即可：<BR>/*qp编码*/<BR>void 
+qp(unsigned char sour,unsigned char first,unsigned char second)<BR>/*&nbsp; 
+<BR>&nbsp; sour:要编码的字符<BR>&nbsp; first:编码后的第一个字符<BR>&nbsp;&nbsp; 
+second:编码后的第二个字符<BR>&nbsp; 
+first和second为返回值<BR>*/<BR>{<BR>&nbsp;if(sour&gt;127)&nbsp;&nbsp; 
+<BR>&nbsp;{first=sour&gt;&gt;4;<BR>&nbsp; second=sour&amp;15;<BR>&nbsp; 
+if(first&gt;9) first+=55;<BR>&nbsp; else first+=48;<BR>&nbsp; if(second&gt;9) 
+second+=55;<BR>&nbsp; else second+=48;<BR>&nbsp; 
+printf("%c%c%c",'=',first,second);<BR>&nbsp;}<BR>}</P>
+<P>/*qp解码*/<BR>void uqp(unsigned char sour,unsigned char first,unsigned char 
+second)<BR>/*<BR>&nbsp; sour:解码后的字符<BR>&nbsp; first:qp码的第一个字符<BR>&nbsp;&nbsp; 
+second:qp码的第二个字符<BR>&nbsp; sour为返回值<BR>*/<BR>{<BR>&nbsp;if(first&gt;=65) 
+first-=55;<BR>&nbsp;else first-=48;<BR>&nbsp;if(second&gt;=65) 
+second-=55;<BR>&nbsp;else 
+second-=48;<BR>&nbsp;sour=null;<BR>&nbsp;sour=first&lt;&lt;4;<BR>&nbsp;sour|=second;<BR>}</P>
+<P>&nbsp;&nbsp;&nbsp; 现在大家知道为什么qp的编码率那么低了吧！关于qp的详细说明和准确定义可以参阅rfc2045。</P>
+<P>二.汉字编码<BR>1. gb码和big5码<BR>&nbsp;&nbsp;&nbsp; 
+gb码是中国大陆、新加坡等国家和地区使用的一种汉字编码方法。big5码是中国台湾省用的一种汉字编码方法。它们的编码方法是完全不同的两种方法，它们之间的转换只能通过“查表法”来进行。所以说转换的方法很简单，困难的是“表”的生成。很多文章对此都做过介绍，我在此就不详述了。在我的主页上有我写的“汉字转码通v1.0”的源程序，其中有这两个“表”，可以直接使用。</P>
+<P>2. hz码<BR>&nbsp;&nbsp;&nbsp; 
+hz码是为了使只能传送7bit信息的邮件服务器或网关能传送8bit信息而定义的编码，也是中文常用编码的一种。它和上面介绍的quoted-printable码都只能对文本进行编码，即编码时忽略控制字符。<BR>&nbsp;&nbsp;&nbsp; 
+这种编码的也是很好辨认的：有许多“~{”和“~}”，而且总是成对出现。下面是hz码的一个例子：<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+~{!6brbkkc7(4sh+!7~}<BR>&nbsp;~{wwu_~}:mogao~{#,0wtf;f:wu&gt;#(~}telnet://202.112.20.132:23~{#)3it1!#~}<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+~{d*8_hm&lt;~9$wwjr#:~}http://mogao.bentiun.net<BR>&nbsp;&nbsp;&nbsp;emailto:mogao@371.net<BR>&nbsp;&nbsp;&nbsp; 
+*********************************************&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<BR>&nbsp;&nbsp;&nbsp; * 
+~{3}ak&lt;grdj2c46&lt;2;4xw_#,3}akwc&lt;#j2c46&lt;2;atob~}*<BR>&nbsp;&nbsp;&nbsp; 
+*********************************************</P>
+<P>&nbsp;&nbsp;&nbsp; 您可以打开“南极星”看这段文字。<BR>&nbsp;&nbsp;&nbsp; 
+它的算法更简单：读一个字符，如果是8位字符，就把它的最高位清零。把连续的8位字符清零后的输出用“~{”和“~}”括起来。解码时：把是用“~{”和“~}”括起来的部分每个字符的第8位置“1”即可。</P>
+<P>&nbsp;&nbsp;&nbsp; 
+上面介绍的三种编码之间的转换是经常遇见的，我写的“汉字转码通v1.0”可以方便的在这三种之间转换，我把它的源程序公开，方便广大网友的学习。</P>
+<P>三.其他常用编码<BR>1.&nbsp; unicode<BR>&nbsp;&nbsp;&nbsp; 
+unicode应用中最典型的例子是：ie4以上版本对html的编码。它可以说是未来windows下唯一的字符集。但它还很不完善，而且win95和win98对它的支持还很有限，甚至它还没有一套完整的标准。不过，微软最新推出的office2000和马上就要推出的windows2000将全面支持unicode。unicode取代其他编码将会是必然的趋势。不过，在近一两年unicode并不会占主导地位，就是在占主导地位后，因为操作系统的差异，其他编码也不会立即消亡。它的中文资料可以在office2000和windows2000所带的文档中找到，它的官方网站是：http://www.unicode.org/。</P>
+<P>2. binhex<BR>&nbsp;&nbsp;&nbsp; binhex 编码是 macintosh 
+计算机（也就是俗称的“苹果电脑”）上用可打印字符表示/传输二进制文件的一种编码方法。它的主要用途是在电子邮件程序中attach二进制文件。大部分的电子邮件程序不支持这种格式（eudora支持），但用winzip可以进行解码。它的资料请查阅macintosh计算机带的相关文档。</P>
+<P><BR>三.总结<BR>&nbsp;&nbsp;&nbsp; 
+由于篇幅所限，除了本文介绍的这几种常用编码外，还是有很多种编码的。如各种加密算法产生的“乱码”（我将在另外一篇文章中详细介绍）。本文中提到的所有文档和源程序在我的主页中均可下载，我的主页地址是：http://mogao.bentium.net。如果您对本文有什么意见请来信商榷，我的e-mail地址是：mogao@371.net。</P>
+<P>注：我在本文中使用的例子“mogao.txt”的内容是：<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+《乱码算法大全》<BR>&nbsp;作者:mogao，白云黄鹤站（telnet://202.112.20.132:23）成员。<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+莫高软件工作室：http://mogao.bentiun.net<BR>&nbsp;&nbsp;&nbsp;emailto:mogao@371.net<BR>&nbsp;&nbsp;&nbsp; 
+*********************************************&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<BR>&nbsp;&nbsp;&nbsp; * 除了记忆什么都不带走，除了足迹什么都不留下*<BR>&nbsp;&nbsp;&nbsp; 
+*********************************************</P>
+<P>&nbsp;</P><BR><BR></DIV></DIV></DIV>
+<SCRIPT src="亂碼算法大全.files/error.htm"></SCRIPT>
+
+<P><BR>
+<SCRIPT language=javascript>
+<!--
+function isEmpty(s)
+{  
+	return ((s == null) || (s.length == 0))
+}
+function submit1()
+{
+   if (isEmpty(document.add_critique.csdnname.value) || isEmpty(document.add_critique.csdnpassword.value) || isEmpty(document.add_critique.critique_content.value))
+   {
+      alert('登陆名，密码，评论不能为空！！！！')   ;
+      return false;
+   }
+   document.add_critique.submit();
+ }
+//-->
+</SCRIPT>
+</CENTER></P></BODY></HTML>

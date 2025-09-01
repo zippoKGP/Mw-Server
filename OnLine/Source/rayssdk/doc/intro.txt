@@ -1,0 +1,142 @@
+
+
+DirectDraw 初始化
+=================
+
+HRESULT create_full_screen_display( HWND hWnd, DWORD dwWidth, DWORD dwHeight, DWORD dwBPP)
+{
+    HRESULT hr;
+
+    //(1) 清除以前的 DirectDraw 物件以及 Surface 等.
+    //    Cleanup anything from a previous call
+    destroy_display_objects();
+
+    //(2) 創建 DirectDraw 物件.
+    //    DDraw stuff begins here
+    if( FAILED( hr = DirectDrawCreateEx( NULL, (VOID**)&lpDD7, IID_IDirectDraw7, NULL ) ) )
+        return E_FAIL;
+
+    //(3) 設置協作級別.
+    //    Set cooperative level
+    hr = lpDD7->SetCooperativeLevel( hWnd, DDSCL_EXCLUSIVE | DDSCL_FULLSCREEN );
+    if( FAILED(hr) )
+        return E_FAIL;
+
+    //(4) 設置顯示模式.
+    //    Set the display mode
+    if( FAILED( lpDD7->SetDisplayMode( dwWidth, dwHeight, dwBPP, 0, 0 ) ) )
+        return E_FAIL;
+
+    //(5) 創建主屏幕緩衝區(附帶後備屏幕緩衝區)
+    //    Create primary surface (with backbuffer attached)
+    DDSURFACEDESC2 ddsd;
+    ZeroMemory( &ddsd, sizeof( ddsd ) );
+    ddsd.dwSize            = sizeof( ddsd );
+    ddsd.dwFlags           = DDSD_CAPS | DDSD_BACKBUFFERCOUNT;
+    ddsd.ddsCaps.dwCaps    = DDSCAPS_PRIMARYSURFACE | DDSCAPS_FLIP |
+                             DDSCAPS_COMPLEX | DDSCAPS_3DDEVICE;
+    ddsd.dwBackBufferCount = 1;
+
+    if( FAILED( hr = lpDD7->CreateSurface( &ddsd, &lpDDSPrimary7, NULL ) ) )
+        return E_FAIL;
+
+    //(6) 獲得後備緩衝區指針.
+    //    Get a pointer to the back buffer
+    DDSCAPS2 ddscaps;
+    ZeroMemory( &ddscaps, sizeof( ddscaps ) );
+    ddscaps.dwCaps = DDSCAPS_BACKBUFFER;
+
+    if( FAILED( hr = lpDDSPrimary7->GetAttachedSurface( &ddscaps,  &lpDDSBack7 ) ) )
+        return E_FAIL;
+
+    lpDDSBack7->AddRef();
+
+    g_dwScreenMode = FULL_SCREEN_MODE;
+
+    //(7) 創建內存緩衝區(用於播放AVI).
+    //    Create memory surface for play avi.
+    if( FAILED( hr = create_memory_surface() ) )
+    {
+        return  E_FAIL;
+    }
+
+    //(8) 更新顯示區域(用於區分全屏模式和窗口模式下的不同顯示).
+    update_display_bounds();
+
+    return S_OK;
+}
+
+
+
+DirectsSound 初始化
+===================
+
+HRESULT InitDirectSound( HWND handle )
+{
+    HRESULT             hr;
+    LPDIRECTSOUNDBUFFER pDSBPrimary = NULL;
+
+    dwDSFlag = 0;
+
+    // Initialize COM
+    if( FAILED (hr = CoInitialize( NULL ) ) )
+        return hr;
+
+    sprintf((char *)print_rec,"       Sound Play : %s", "DirectSound" );
+    log_error(1,print_rec);
+
+    //(1) 創建 DirectSound 物件對象.
+    //    Create IDirectSound using the primary sound device
+    if( FAILED( hr = DirectSoundCreate( NULL, &g_pDS, NULL ) ) )
+        return hr;
+
+    //(2) 設置協作級別.
+    //    Set coop level to DSSCL_PRIORITY
+    if( FAILED( hr = g_pDS->SetCooperativeLevel( handle, DSSCL_PRIORITY ) ) )
+        return hr;
+
+    //(3) 創建主緩衝區以進行格式設定.
+    //    Create the primary buffer 
+    DSBUFFERDESC dsbd;
+    ZeroMemory( &dsbd, sizeof(DSBUFFERDESC) );
+    dsbd.dwSize        = sizeof(DSBUFFERDESC);
+    dsbd.dwFlags       = DSBCAPS_PRIMARYBUFFER;
+    dsbd.dwBufferBytes = 0;
+    dsbd.lpwfxFormat   = NULL;
+       
+    if( FAILED( hr = g_pDS->CreateSoundBuffer( &dsbd, &pDSBPrimary, NULL ) ) )
+        return hr;
+
+    //(4) 設置主緩衝區的格式.
+    //    Set primary buffer format to stero, 22kHz and 16-bit output.
+    WAVEFORMATEX wfx;
+    ZeroMemory( &wfx, sizeof(WAVEFORMATEX) ); 
+    wfx.wFormatTag      = WAVE_FORMAT_PCM; 
+    wfx.nChannels       = 2; 
+    wfx.nSamplesPerSec  = 22050; 
+    wfx.wBitsPerSample  = 16; 
+    wfx.nBlockAlign     = (WORD)(wfx.wBitsPerSample / 8 * wfx.nChannels);
+    wfx.nAvgBytesPerSec = wfx.nSamplesPerSec * wfx.nBlockAlign;
+    if( FAILED( hr = pDSBPrimary->SetFormat(&wfx) ) )
+        return hr;
+
+    sprintf((char *)print_rec,"      Wave format : %s", "PCM Wave" );
+    log_error(1,print_rec);
+    sprintf((char *)print_rec,"         Channels : %d", wfx.nChannels );
+    log_error(1,print_rec);
+    sprintf((char *)print_rec,"  Samples per sec : %d", wfx.nSamplesPerSec );
+    log_error(1,print_rec);
+    sprintf((char *)print_rec,"  Bits per sample : %d", wfx.wBitsPerSample );
+    log_error(1,print_rec);
+
+
+    //(5) 釋放主緩衝區.
+    SAFE_RELEASE( pDSBPrimary );
+
+    dwDSFlag |= DS_INIT;
+
+    return S_OK;
+}
+
+
+

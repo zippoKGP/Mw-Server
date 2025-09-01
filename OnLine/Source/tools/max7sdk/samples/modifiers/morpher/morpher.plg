@@ -1,0 +1,66 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Morpher - Win32 Hybrid--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x809 /fo".\Hybrid/wM3.res" /i "..\..\..\include" /d "_DEBUG" "D:\3dsmax7\max7sdk\samples\modifiers\morpher\wM3.rc"" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2B7.tmp" with contents
+[
+/nologo /G6 /MD /W3 /GX /ZI /Od /I "..\..\..\include" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /Fp".\Hybrid/morpher.pch" /YX /Fo".\Hybrid/" /Fd"Morpher.dlm.pdb" /c 
+"D:\3dsmax7\max7sdk\samples\modifiers\morpher\wM3_cache.cpp"
+"D:\3dsmax7\max7sdk\samples\modifiers\morpher\wM3_channel.cpp"
+"D:\3dsmax7\max7sdk\samples\modifiers\morpher\wM3_dlg-fns.cpp"
+"D:\3dsmax7\max7sdk\samples\modifiers\morpher\wM3_dlg.cpp"
+"D:\3dsmax7\max7sdk\samples\modifiers\morpher\wM3_impexp.cpp"
+"D:\3dsmax7\max7sdk\samples\modifiers\morpher\wM3_io.cpp"
+"D:\3dsmax7\max7sdk\samples\modifiers\morpher\wM3_main.cpp"
+"D:\3dsmax7\max7sdk\samples\modifiers\morpher\wM3_pick.cpp"
+"D:\3dsmax7\max7sdk\samples\modifiers\morpher\wM3_plugin.cpp"
+"D:\3dsmax7\max7sdk\samples\modifiers\morpher\wM3_subdlg.cpp"
+"D:\3dsmax7\max7sdk\samples\modifiers\morpher\wM3_undo.cpp"
+"D:\3dsmax7\max7sdk\samples\modifiers\morpher\wM3_core.cpp"
+"D:\3dsmax7\max7sdk\samples\modifiers\morpher\wM3_material.cpp"
+"D:\3dsmax7\max7sdk\samples\modifiers\morpher\wM3_material_dlg.cpp"
+"D:\3dsmax7\max7sdk\samples\modifiers\morpher\wM3_material_pick.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2B7.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2B8.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib maxscrpt.lib core.lib geom.lib gfx.lib mesh.lib maxutil.lib paramblk2.lib comctl32.lib winmm.lib vfw32.lib /nologo /base:"0x1fb0000" /subsystem:windows /dll /incremental:yes /pdb:"..\..\..\..\maxsdk\plugin\Morpher.dlm.pdb" /debug /machine:I386 /def:".\wM3.def" /out:"..\..\..\..\maxsdk\plugin\Morpher.dlm" /implib:".\Hybrid/Morpher.lib" /pdbtype:sept /libpath:"..\..\..\lib" 
+.\Hybrid\wM3_cache.obj
+.\Hybrid\wM3_channel.obj
+".\Hybrid\wM3_dlg-fns.obj"
+.\Hybrid\wM3_dlg.obj
+.\Hybrid\wM3_impexp.obj
+.\Hybrid\wM3_io.obj
+.\Hybrid\wM3_main.obj
+.\Hybrid\wM3_pick.obj
+.\Hybrid\wM3_plugin.obj
+.\Hybrid\wM3_subdlg.obj
+.\Hybrid\wM3_undo.obj
+.\Hybrid\wM3_core.obj
+.\Hybrid\wM3_material.obj
+.\Hybrid\wM3_material_dlg.obj
+.\Hybrid\wM3_material_pick.obj
+.\Hybrid\wM3.res
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2B8.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+wM3_cache.cpp
+d:\3dsmax7\max7sdk\include\istdplug.h(1709) : error C2504: 'Options' : base class undefined
+wM3_channel.cpp
+d:\3dsmax7\max7sdk\include\istdplug.h(1709) : error C2504: 'Options' : base class undefined
+wM3_dlg-fns.cpp
+d:\3dsmax7\max7sdk\include\istdplug.h(1709) : error C2504: 'Options' : base class undefined
+wM3_dlg.cpp
+d:\3dsmax7\max7sdk\include\istdplug.h(1709) : error C2504: 'Options' : base class undefined
+cl.exe terminated at user request.
+
+</pre>
+</body>
+</html>

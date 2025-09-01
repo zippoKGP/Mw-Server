@@ -1,0 +1,934 @@
+2002.10.21.
+---------------------------------------------------------------------
+(1) 對以下幾個函數進行了初步的優化:
+	put_rle();
+	alpha_put_rle();
+	gray_put_rle();
+	noshadow_put_rle();
+	additive_put_rle();
+
+
+
+2002.10.18.
+---------------------------------------------------------------------
+(1) 修改了 "xrla.h" 中 XRLA 的結構定義前後:
+    #pragma pack(push)
+    #pragma pack(1)
+    ...
+    #pragma pack(pop)
+
+
+2002.10.12.
+---------------------------------------------------------------------
+(1) 修改了 "xcak.xpp" 中  load_cake_frame_from_file() 的一個bug.
+
+
+
+2002.10.11.
+---------------------------------------------------------------------
+(1) 修改了 "xrle.cpp" 中 alpha_put_rle(...) 函數處理alpha時的bug.(stephen).
+
+
+2002.10.10.
+---------------------------------------------------------------------
+(1) 修改了 "xdraw.cpp" 中 _get_screen()中的錯誤(Dixon).
+    原來使用 Back surface 來獲得當前屏幕, 現在改為 Primary surface 來獲得.
+	不過, 這樣會連同image滑鼠一起抓到.
+	建議: 如果不希望抓到滑鼠, 則不要使用本函數.
+
+
+2002.10.8.
+---------------------------------------------------------------------
+(1) 增加了中文輸入支持("raysime.cpp" 和 "raysime.h").
+(2) 在 "xkiss.cpp" 中添加了中文支持函數:
+	EXPORT  SLONG   FNBACK  find_word_clip_position(char *str, SLONG start, SLONG len);
+	EXPORT  SLONG   FNBACK  find_word_reserved_last_position(char *str, SLONG reserved_len);
+	EXPORT  char *  FNBACK  word_upper(char *str);
+	EXPORT  char *  FNBACK  word_lower(char *str);  
+	EXPORT  char *  FNBACK  delete_last_word(char *str);
+
+
+
+2002.9.26.
+---------------------------------------------------------------------
+(1) 修改了 "winfont.cpp" 中的前景及背景的顏色搭配(效果~F1,~F2時).
+    感謝AK熱情提供.
+(2) 添加了 oper_blue_alpha_color() 函數("xvga.cpp", "xgrafx.cpp").
+    添加了 blue_alpha_put_rle() 函數("xrle.cpp").
+
+
+2002.9.11.
+---------------------------------------------------------------------
+(1) 修改了 "packfile.cpp" 中 打開或存儲文件時遇到中文出錯的bug.
+    操作的時候用到了 strlwr(...) 函數, 結果導致轉換中文目錄錯誤.
+
+
+2002.8.23.
+---------------------------------------------------------------------
+(1) 修改了 "xkiss.cpp" 中 oper_whole_path(...) 函數, 以前在進行該函數
+    操作的時候用到了 strupr(...) 函數, 結果導致轉換中文目錄錯誤.
+
+
+2002.8.9.
+---------------------------------------------------------------------
+(1) 新建了兩個頭文件, "xgb2big.h" 和 "xbig2gb.h", 文件中是漢字轉碼表, 
+	其中繁體轉簡體的表替代了原來 "winfont.cpp" 中的表.
+(2) 新增加了兩個函數, 用來轉換漢字的內碼:
+	UHINT   convert_word_gb2big(UHINT gb_code);
+	UHINT   convert_word_big2gb(UHINT big_code);
+	
+
+2002.7.15.
+---------------------------------------------------------------------
+添加了新的函數 
+(1) "function.cpp" 中:
+	EXPORT  SLONG   FNBACK  get_buffer_number(USTR *buffer, SLONG *index);
+	EXPORT  USTR *  FNBACK  get_buffer_string(USTR *buffer, SLONG *index);
+
+
+2002.7.10.
+---------------------------------------------------------------------
+修改了 "xinput.cpp" 中處理 WM_NCMOUSEMOVE 時沒有讀取滑鼠座標的 bug.
+修改了 "xinput.cpp" 中處理 WM_SETCURSOR 時錯誤的讀取滑鼠座標的 bug.
+
+
+2002.6.21.
+---------------------------------------------------------------------
+變動了 rle 上圖時的 RLE_SHADOW_DARK 的值, 將原來的 15 改為 22, 使陰影
+更淡.
+
+
+2002.6.19.
+---------------------------------------------------------------------
+修改了 "xsystem.cpp" 中 store_game_path() 的實現方式(lrw).
+	(1) 使用windows的api函數獲得當前module的工作路徑.
+	(2) 將windows的默認驅動器和默認路徑設置為以上路徑.
+	(3) 如果獲得失敗, 則直接返回windows的默認驅動器和默認路徑.
+	
+
+
+2002.6.17
+---------------------------------------------------------------------
+新增加了 print12(...) 的顯示小漢字的支持.
+新增加了 set_winfont_weight(SLONG weight);
+
+
+●需要在 xsystem.cpp 的 idle_loop() 函數中根據 user 是否 init_cdrom_music
+來進行 loop_cdrom_music 的檢測.
+
+
+
+
+2002.6.11.
+---------------------------------------------------------------------
+修改了 "packfile.cpp" 中的一個bug.
+	當數據塊為非壓縮的格式時, 更新 pack_file->data_pos 需要根據 pack_file->block[block] 來判斷.
+	不能直接用
+		pack_file->data_pos += pack_file->block[block];
+	而應該為
+		if(pack_file->block[block] == 0)
+			pack_file->data_pos += 0x10000l;
+		else
+			pack_file->data_pos += pack_file->block[block];
+
+添加了新的函數 "xgrafx.cpp":
+EXPORT  void    FNBACK  clear_abitmap_image(ABMP *abmp);
+EXPORT  void    FNBACK  fill_abitmap_image(ABMP *abmp, PIXEL c);
+EXPORT  void    FNBACK  clear_abitmap_alpha(ABMP *abmp);
+
+
+2002.6.10.
+---------------------------------------------------------------------
+添加了新的函數 
+(1) "function.cpp" 中:
+	SLONG	load_file_to_buffer(USTR *filename, USTR **buffer);
+(2) "xkiss.cpp" 中:
+	SLONG   get_buffer_line(char *buffer, SLONG *buffer_index, SLONG buffer_size, 
+                            char *line, SLONG line_size);
+(3) "winfont.cpp" 中:
+	void	set_winfont_convert_big5_to_gb(SLONG flag);
+
+
+
+2002.5.31.
+---------------------------------------------------------------------
+修正了 alpha_put_rle 中處理原本有ALPHA的像素的算法.
+
+
+2002.5.23.
+---------------------------------------------------------------------
+(1) LRW: optimize function scale_put_bitmap(...)
+
+
+2002.5.22.
+---------------------------------------------------------------------
+(1) 將 xmedia.h 中link lib 的一些定義
+	#pragma comment(lib, ...)
+	移到了 xmedia.cpp 中.
+
+
+2002.5.15.
+---------------------------------------------------------------------
+(1) 新增函數 "winmain.cpp", "winmain.h":
+	EXPORT  void    FNBACK  SetDDWndEnableDblClk( SLONG flag);
+
+
+2002.5.14.
+---------------------------------------------------------------------
+(1) Enhance support ability of "xpoly.cpp":
+	某些情況如編輯100x100屏(800x600)的地圖事件時, 需要多邊形的數值
+    非常大, 在進行兩個數乘時會溢出, 所以, 對 "xpoly.cpp"  中的有關
+	運算改為 double.
+
+
+2002.5.13.
+---------------------------------------------------------------------
+(1) Add new function:
+	void	set_winfont_name(USTR *name);
+(2) Fixed BUG of function:
+	EXPORT void FNBACK log_error(int p, char *strMsg, ... )
+	{
+		//...
+		OutputDebugString((LPCTSTR)strBuffer);
+	}
+
+
+
+2002.5.10.
+---------------------------------------------------------------------
+Fixed BUG of xsound.cpp.
+when we can't load a wav file or buffer, we return NULL.
+when create static buffer, we return S_FAULT(0x00000001L).
+but it will cause FAILED(result) pass.
+
+
+2002.5.6.
+---------------------------------------------------------------------
+考慮到＜海之樂章＞主程式架構的不同，對 ENGINE 作以下改變。
+(1) 將 finishProc() 函數改變為外部函數.
+(2) 將變量
+		BOOL        g_bIsInitialized = FALSE;   /* is program initialized sucessfully? */
+		BOOL        g_enable_f12_switch_screen = TRUE;  /* is enable f12 switch screen mode? */
+	改變為外部變量.
+
+
+2002.5.2.
+---------------------------------------------------------------------
+(1) 加入控制切換屏幕(窗口模式和全屏模式)的函數.
+	EXPORT  void    FNBACK  SetDDWndSwitchScreenModeEnable( SLONG flag );
+	
+
+
+2002.4.25.
+---------------------------------------------------------------------
+(1) 完善 "packfile.cpp" 中文件包支持函數。
+
+
+2002.4.24.
+---------------------------------------------------------------------
+(1) 新增加了一種能夠快速壓縮和解壓的 LZO 支持函數.
+	"lzo.cpp" 和 "lzo.h".
+(2) Fixed bug about function get_file_path(). -- "xkiss.cpp"
+
+
+
+2002.4.23.
+---------------------------------------------------------------------
+(1) remove some useless defines from "packfile.h".
+/*
+#ifdef   USE_PACK_FILE
+#define  MY_FILE        PACK_FILE
+#define  my_fopen       pack_fopen
+#define  my_fclose      pack_fclose
+#define  my_fseek       pack_fseek
+#define  my_fread       pack_fread
+#define  my_fwrite      pack_fwrite
+#define  my_fsize       pack_fsize
+#else
+#define  MY_FILE        FILE
+#define  my_fopen       fopen
+#define  my_fclose      fclose
+#define  my_fseek       fseek
+#define  my_fread       fread
+#define  my_fwrite      fwrite
+#define  my_fsize       fsize
+#endif
+*/
+
+
+
+2002.4.19.
+---------------------------------------------------------------------
+(1) Fixed BUG: "mp3.cpp"
+	改正了 play_mp3()時沒有保存文件名的錯誤。
+
+
+2002.4.18.
+---------------------------------------------------------------------
+(1) 修改 show_help_info() 中響應滑鼠滾輪消息的處理，使其與WINDOWS的處
+　　理方式一致(不同的方向對應文字行的上下捲動)。
+(2) Fixed BUG: "menuwin.cpp" 中 clear_key_choice()函數.
+
+
+2002.4.15.
+---------------------------------------------------------------------
+(1) 改善 xsound.cpp 中播放聲音的函數, 使可以支持播放buffer中的聲音數據.
+    新增函數為 play_buffer_voice(...);
+
+
+
+2002.4.10.
+---------------------------------------------------------------------
+(1) 在漢字顯示模組 "winfont.cpp" 中添加了支持系統控制函數。
+	相關函數為：
+	void    set_winfont_support_system(SLONG flags)
+	flags:
+		SUPPORT_FONT_SYSTEM_GB      0x01
+		SUPPORT_FONT_SYSTEM_BIG5    0x02
+	系統默認為支持繁體系統。
+
+
+
+
+2002.3.29.
+---------------------------------------------------------------------
+(1) 對"xpoly.cpp" 中的如下幾個函數加上條件檢測:
+	D2_is_point_in_poly(...);
+	D3_is_point_in_poly_underside(...);
+	D3_is_point_in_poly_cover(...);
+	...
+(2) 改進了函數 D3_neaten_poly_gon(...).
+    使其可以自動刪除不合凸多邊形規則的內點.
+
+(3) 對 scale_put_rle(...)函數作優化. 初步優化結果如下 :
+EXPORT  void    FNBACK  scale_put_rle(SLONG sx,SLONG sy,SLONG scalex,SLONG scaley,RLE *src_rle,BMP *dest_bitmap)
+{
+    SLONG disp_x,disp_y;
+    SLONG x,y;
+    UCHR count,info;
+    PIXEL pix;
+//  PIXEL pix2;
+    SLONG i;
+    USTR *data=NULL;
+    SLONG data_size;
+    SLONG data_index;
+    double zoom_x,zoom_y;
+    //SLONG block_xl, block_yl;
+    //SLONG block_sx, block_sy;
+    SLONG block_i,block_j;
+    SLONG *block_sx_table = NULL;
+    SLONG *block_sy_table = NULL;
+    SLONG *block_xl_table = NULL;
+    SLONG *block_yl_table = NULL;
+
+    if( !src_rle ) return;
+    if( !(src_rle->w && src_rle->h) ) return;
+
+    zoom_x = (double)scalex/(double)src_rle->w;
+    zoom_y = (double)scaley/(double)src_rle->h;
+
+    //create tables for optimize ------------------------------------------------------------------------
+    if(NULL == (block_sx_table = (SLONG*)GlobalAlloc(GPTR, sizeof(SLONG)*src_rle->w)))
+        goto some_error;
+    if(NULL == (block_sy_table = (SLONG*)GlobalAlloc(GPTR, sizeof(SLONG)*src_rle->h)))
+        goto some_error;
+    if(NULL == (block_xl_table = (SLONG*)GlobalAlloc(GPTR, sizeof(SLONG)*src_rle->w)))
+        goto some_error;
+    if(NULL == (block_yl_table = (SLONG*)GlobalAlloc(GPTR, sizeof(SLONG)*src_rle->h)))
+        goto some_error;
+
+    //init block_sx_table ---------------------
+    for(x=0; x<src_rle->w; x++)
+    {
+        block_sx_table[x] = sx + (SLONG)(x * zoom_x);
+    }
+    //init block_sy_table ---------------------
+    for(y=0; y<src_rle->h; y++)
+    {
+        block_sy_table[y] = sy + (SLONG)(y * zoom_y);
+    }
+    //init block_xl_table ---------------------
+    for(x=0; x<src_rle->w-1; x++)
+    {
+        block_xl_table[x] = (SLONG)((x+1) * zoom_x) - (SLONG)(x * zoom_x);
+    }
+    //now x = (src_rle->w-1)
+    block_xl_table[x] = (SLONG)scalex - (SLONG)( x * zoom_x );
+
+    //init block_yl_table ----------------------
+    for(y=0; y<src_rle->h-1; y++)
+    {
+        block_yl_table[y] = (SLONG)((y+1) * zoom_y) - (SLONG)(y * zoom_y);
+    }
+    //now y = (src_rle->h-1)
+    block_yl_table[y] = (SLONG)scaley - (SLONG)(y * zoom_y);
+
+
+    //start decode rle ------------------------------------------------------------------------
+    data = src_rle->line[0];
+    data_size = src_rle->size;
+    data_index=0;
+    x = 0;
+    y = 0;
+    while(data_index<data_size)
+    {
+        count = data[data_index++];
+        info = data[data_index++];
+        if(count) // continuous pixes
+        {
+            pix = *(PIXEL*)&data[data_index];
+            data_index += SIZEOFPIXEL;
+            switch(info)
+            {
+            case RLE_SHADOW:
+                for(i=0;i<count;i++)
+                {
+                    //Jack, 2002.3.29.
+                    /*
+                    block_sx = sx + (SLONG)(x * zoom_x);
+                    block_sy = sy + (SLONG)(y * zoom_y);
+                    if(x == src_rle->w - 1)
+                        block_xl = (SLONG)scalex - (SLONG)(x * zoom_x);
+                    else
+                        block_xl = (SLONG)((x+1) * zoom_x) - (SLONG)(x * zoom_x);
+                    if(y == src_rle->h - 1)
+                        block_yl = (SLONG)scaley - (SLONG)(y * zoom_y);
+                    else
+                        block_yl = (SLONG)((y+1) * zoom_y) - (SLONG)(y * zoom_y);
+                    for(block_j = 0; block_j<block_yl; block_j++)
+                    {
+                        disp_y = block_sy + block_j;
+                        for(block_i = 0; block_i<block_xl; block_i++)
+                        {
+                            disp_x = block_sx + block_i;
+                            if(disp_x>=0 && disp_x<dest_bitmap->w && disp_y>=0 && disp_y<dest_bitmap->h)
+                            {
+                                //if( (disp_x & 0x1) ^ (disp_y & 0x1) )
+                                //  dest_bitmap->line[disp_y][disp_x] = SYSTEM_BLACK;//pix;
+                                oper_dark_color(&dest_bitmap->line[disp_y][disp_x], 15);
+                            }
+                        }
+                    }
+                    */
+
+                    disp_y = block_sy_table[y];
+                    for(block_j = 0; block_j<block_yl_table[y]; block_j++)
+                    {
+                        disp_x = block_sx_table[x];
+                        for(block_i = 0; block_i<block_xl_table[x]; block_i++)
+                        {
+                            if(disp_x>=0 && disp_x<dest_bitmap->w && disp_y>=0 && disp_y<dest_bitmap->h)
+                            {
+                                oper_dark_color(&dest_bitmap->line[disp_y][disp_x], 15);
+                            }
+                            disp_x ++;
+                        }
+                        disp_y++;
+                    }
+                    x++;
+                }
+                break;
+            default:
+                if(info & RLE_IMAGE)
+                {
+                    for(i=0;i<count;i++)
+                    {
+                        //Jack, 2002.3.29.
+                        /*
+                        block_sx = sx + (SLONG)(x * zoom_x);
+                        block_sy = sy + (SLONG)(y * zoom_y);
+                        if(x == src_rle->w - 1)
+                            block_xl = (SLONG)scalex - (SLONG)(x * zoom_x);
+                        else
+                            block_xl = (SLONG)((x+1) * zoom_x) - (SLONG)(x * zoom_x);
+                        if(y == src_rle->h - 1)
+                            block_yl = (SLONG)scaley - (SLONG)(y * zoom_y);
+                        else
+                            block_yl = (SLONG)((y+1) * zoom_y) - (SLONG)(y * zoom_y);
+                        for(block_j = 0; block_j<block_yl; block_j++)
+                        {
+                            disp_y = block_sy + block_j;
+                            for(block_i = 0; block_i<block_xl; block_i++)
+                            {
+                                disp_x = block_sx + block_i;
+                                if(disp_x>=0 && disp_x<dest_bitmap->w && disp_y>=0 && disp_y<dest_bitmap->h)
+                                {
+                                    dest_bitmap->line[disp_y][disp_x] = pix;//SYSTEM_GREEN;//pix;
+                                }
+                            }
+                        }
+                        */
+                        disp_y = block_sy_table[y];
+                        for(block_j = 0; block_j<block_yl_table[y]; block_j++)
+                        {
+                            disp_x = block_sx_table[x];
+                            for(block_i = 0; block_i<block_xl_table[x]; block_i++)
+                            {
+                                if(disp_x>=0 && disp_x<dest_bitmap->w && disp_y>=0 && disp_y<dest_bitmap->h)
+                                {
+                                    dest_bitmap->line[disp_y][disp_x] = pix;//SYSTEM_GREEN;//pix;
+                                }
+                                disp_x ++;
+                            }
+                            disp_y++;
+                        }
+                        x++;
+                    }
+                }
+                else
+                {
+                    info &= RLE_ALPHA;
+                    for(i=0;i<count;i++)
+                    {
+                        //Jack, 2002.3.29.
+                        /*
+                        block_sx = sx + (SLONG)(x * zoom_x);
+                        block_sy = sy + (SLONG)(y * zoom_y);
+                        if(x == src_rle->w - 1)
+                            block_xl = (SLONG)scalex - (SLONG)(x * zoom_x);
+                        else
+                            block_xl = (SLONG)((x+1) * zoom_x) - (SLONG)(x * zoom_x);
+                        if(y == src_rle->h - 1)
+                            block_yl = (SLONG)scaley - (SLONG)(y * zoom_y);
+                        else
+                            block_yl = (SLONG)((y+1) * zoom_y) - (SLONG)(y * zoom_y);
+                        for(block_j = 0; block_j<block_yl; block_j++)
+                        {
+                            disp_y = block_sy + block_j;
+                            for(block_i = 0; block_i<block_xl; block_i++)
+                            {
+                                disp_x = block_sx + block_i;
+                                if(disp_x>=0 && disp_x<dest_bitmap->w && disp_y>=0 && disp_y<dest_bitmap->h)
+                                {
+                                    oper_alpha_color(&pix, &dest_bitmap->line[disp_y][disp_x], info);
+                                }
+                            }
+                        }
+                        */
+                        disp_y = block_sy_table[y];
+                        for(block_j = 0; block_j<block_yl_table[y]; block_j++)
+                        {
+                            disp_x = block_sx_table[x];
+                            for(block_i = 0; block_i<block_xl_table[x]; block_i++)
+                            {
+                                if(disp_x>=0 && disp_x<dest_bitmap->w && disp_y>=0 && disp_y<dest_bitmap->h)
+                                {
+                                    oper_alpha_color(&pix, &dest_bitmap->line[disp_y][disp_x], info);
+                                }
+                                disp_x ++;
+                            }
+                            disp_y++;
+                        }
+
+                        x++;
+                    }
+                }
+                break;
+            }
+        }
+        else    // count=0, is a flag
+        {
+            switch(info)
+            {
+            case 0://end of line
+                {
+                    x=0;
+                    y++;
+                    break;
+                }
+            case 1://end of image
+                data_index=data_size+100;   //break
+                break;
+            case 2://transfered meaning
+                x += data[data_index++];
+                y += data[data_index++];
+                break;
+            default:// copy pixels
+                for(i=0;i<info;i++)
+                {
+                    //Jack, 2002.3.29.
+                    /*
+                    block_sx = sx + (SLONG)(x * zoom_x);
+                    block_sy = sy + (SLONG)(y * zoom_y);
+                    if(x == src_rle->w - 1)
+                        block_xl = (SLONG)scalex - (SLONG)(x * zoom_x);
+                    else
+                        block_xl = (SLONG)((x+1) * zoom_x) - (SLONG)(x * zoom_x);
+                    if(y == src_rle->h - 1)
+                        block_yl = (SLONG)scaley - (SLONG)(y * zoom_y);
+                    else
+                        block_yl = (SLONG)((y+1) * zoom_y) - (SLONG)(y * zoom_y);
+                    for(block_j = 0; block_j<block_yl; block_j++)
+                    {
+                        disp_y = block_sy + block_j;
+                        for(block_i = 0; block_i<block_xl; block_i++)
+                        {
+                            disp_x = block_sx + block_i;
+                            if(disp_x>=0 && disp_x<dest_bitmap->w && disp_y>=0 && disp_y<dest_bitmap->h)
+                            {
+                                dest_bitmap->line[disp_y][disp_x] = *(PIXEL*)&data[data_index];
+                            }
+                        }
+                    }
+                    */
+                    disp_y = block_sy_table[y];
+                    for(block_j = 0; block_j<block_yl_table[y]; block_j++)
+                    {
+                        disp_x = block_sx_table[x];
+                        for(block_i = 0; block_i<block_xl_table[x]; block_i++)
+                        {
+                            if(disp_x>=0 && disp_x<dest_bitmap->w && disp_y>=0 && disp_y<dest_bitmap->h)
+                            {
+                                dest_bitmap->line[disp_y][disp_x] = *(PIXEL*)&data[data_index];
+                            }
+                            disp_x ++;
+                        }
+                        disp_y++;
+                    }
+
+                    data_index += SIZEOFPIXEL;
+                    x ++;
+                }
+                break;
+            }
+        }
+    }
+
+some_error:
+    if(block_sx_table) { GlobalFree(block_sx_table); block_sx_table = NULL; }
+    if(block_sy_table) { GlobalFree(block_sy_table); block_sy_table = NULL; }
+    if(block_xl_table) { GlobalFree(block_xl_table); block_xl_table = NULL; }
+    if(block_yl_table) { GlobalFree(block_yl_table); block_yl_table = NULL; }
+
+    return;
+}
+
+
+
+2002.3.28.
+---------------------------------------------------------------------
+(1) 利用 BoundsChecker 檢查了 SDK 中可能存在的內存洩漏問題.
+(2) 新增函數:
+	"xgrafx.cpp":
+	EXPORT  void    FNBACK  clear_img(IMG *img);
+	EXPORT  void    FNBACK  get_img(SLONG sx,SLONG sy,SLONG xl,SLONG yl,IMG *des_img,IMG *src_img);
+
+	"xrle.cpp"
+	extern  RLE*    encode_rle(BMP *merge_bmp, IMG *info_img);
+
+
+2002.3.26.
+---------------------------------------------------------------------
+(1) 取消了 SCREEN_WIDTH 和 SCREEN_HEIGHT 在 SDK 中的定義.
+	改用 SetDDWndScreenSize(SLONG width, SLONG height)函數來設定.
+
+
+2002.3.25.
+---------------------------------------------------------------------
+(1) 添加了新函數
+	SLONG   load_cake_frame_from_file(USTR *filename, SLONG frame_index, CAKE_FRAME **cf);
+
+
+2002.3.22.
+---------------------------------------------------------------------
+(1) 修改了在 xinput.cpp 中處理 WM_MOUSEWHEEL 消息時讀取滑鼠座標的錯誤.
+    分析: 應用程序收到 WM_MOUSEWHEEL 消息時, 同時會獲得滑鼠的當前座標, 
+	      但是, 與其他滑鼠消息不同的是, 此時獲得的座標是屏幕的絕對座標, 
+		  而不是工作區座標. 所以, 必須對座標作相應的轉換.
+(2) 添加新函數:
+	SLONG	D3_seek_relation_point_poly_ex(POLY *pl,SLONG dist,SLONG kx, SLONG ky, SLONG *x,SLONG *y,SLONG *z,SLONG *x1,SLONG *y1,SLONG *z1,SLONG *x2,SLONG *y2,SLONG *z2);
+
+(3) ●TODO: added xmedia stretch support.
+
+
+
+2002.1.31.
+---------------------------------------------------------------------
+(1) 修改了依照2D判斷兩線段先後關係的BUG.
+	D2_check_deeply_segmane_segment(...);
+
+
+2001.12.23.
+---------------------------------------------------------------------
+(1) Added new function:
+	void	mask_put_rle_edge(...);
+
+
+2001.12.22.
+---------------------------------------------------------------------
+(1) Optimize functions:
+	put_rle(...);     -> use asm.
+(2) Added new functons for check rle:
+    remake_rle_line_pointer(...);
+
+
+
+2001.12.21.
+---------------------------------------------------------------------
+(1) 新增函數
+void noshadow_put_rle(...);
+void bound_put_bitmap(...);
+
+(2) Optimize some functions:
+	put_bitmap(...);
+	additive_put_bitmap(...);
+	adulterate_bitmap(...);
+	eclipse_bitmap(...);
+
+(3) 更新 BMP 的 pitch 的涵義。
+
+
+
+2001.12.19.
+---------------------------------------------------------------------
+新增函數
+void direct_play_voice(SLONG start_channel, SLONG end_channel, SLONG loop, USTR *filename);
+
+
+2001.12.17.
+---------------------------------------------------------------------
+新增了 "mmx.cpp" 和 "mmx.h", mmx優化的相關函數(lrw).
+
+
+2001.11.20.
+---------------------------------------------------------------------
+添加函數
+int string_2_number( char *str );
+
+
+2001.10.25.
+---------------------------------------------------------------------
+(1) 取消了在 xsound 中打開文件錯誤會導致系統退出.
+
+
+2001.10.17.
+---------------------------------------------------------------------
+Add WM_DROPFILES control to "winmain.cpp".
+
+
+2001.10.16.
+---------------------------------------------------------------------
+(1) 重新整理 "xdraw.cpp" 中的有關 DirectDraw 底層部分的函數。
+
+
+2001.10.12.
+---------------------------------------------------------------------
+(1) Add new function to "xsystem.cpp", "xsystem.h".
+        int   system_rand(void);
+            產生一個指定區間(0,RAND_MAX)內均勻分布的隨機整數.
+        void  system_rand_init(void);
+(2) 修改了函數 run_random_init(void);
+
+
+2001.9.21.
+---------------------------------------------------------------------
+在 vtga.cpp 和 vtga.h 中新增函數
+SLONG   TGA_load_file_image(USTR *filename, SLONG *image_width, SLONG *image_height,
+                            USTR *image_buffer, USTR *alpha_buffer);
+
+
+2001.9.18.
+---------------------------------------------------------------------
+(Dixon) 加大了漢字顯示的字體大小。
+
+
+2001.9.6.
+---------------------------------------------------------------------
+(1) 在 xgrafx.cpp 中新增了
+void    oper_partial_color(UHINT *fore_color, UHINT *back_color, SLONG alpha);
+計算fore_color的部分色, 將結果放入back_color中。
+
+void    oper_complement_color(UHINT *fore_color, UHINT *back_color, SLONG alpha);
+計算fore_color的補色, 將結果放入back_color中。
+
+
+
+
+2001.9.3.
+---------------------------------------------------------------------
+(1) 在 xgrafx.cpp 中新增了
+void    oper_red_color(UHINT *fore_color, UHINT *back_color);
+void    oper_green_color(UHINT *fore_color, UHINT *back_color);
+void    oper_blue_color(UHINT *fore_color, UHINT *back_color);
+void    oper_yellow_color(UHINT *fore_color, UHINT *back_color);
+void    oper_merge_color(UHINT *fore_color, UHINT *back_color, SLONG alpha);
+
+(2) 在 xrle.cpp 中新增了
+void    red_put_rle(SLONG x, SLONG y, RLE *rle, BMP *bitmap);
+void    green_put_rle(SLONG x, SLONG y, RLE *rle, BMP *bitmap);
+void    blue_put_rle(SLONG x, SLONG y, RLE *rle, BMP *bitmap);
+void    yellow_put_rle(SLONG x, SLONG y, RLE *rle, BMP *bitmap);
+void    merge_put_rle(SLONG x, SLONG y, RLE *rle, BMP *bitmap);
+
+
+2001.8.27.
+---------------------------------------------------------------------
+(1) 在 xdraw.cpp, xdraw.h 中新增函數
+void    setup_vga_functions(DWORD dwRBitMask, DWORD dwGBitMask, DWORD dwBBitMask);
+
+(2) 將 xvga.cpp 中的有關 pixel format 的一些定義移動到 xvga.h 中.
+
+
+
+2001.8.13.
+---------------------------------------------------------------------
+修改了xinput.cpp中用到timer_tick09的有關函數.
+將timer_tick09改為system_timer_tick.以免與用戶的應用程序衝突.
+至此，可以確保應用程序可以安全使用 timer_tick00 到 timer_tick09
+的所有timer。
+
+
+2001.7.23.
+---------------------------------------------------------------------
+在 "xsound.cpp", "xsound.h"中增加了函數
+void  notify_changed_sound_cfg(SLONG changed_flags);
+讓改變了的 sound_cfg的適當的域發生作用.
+
+
+2001.7.19.
+---------------------------------------------------------------------
+(1) 在 "xrle.cpp", "xrle.h"中新增了函數
+        void    filter_put_rle(SLONG x,SLONG y,RLE *rle,BMP *bitmap,SLONG filter);
+    以一定的filter來過濾rle中的alpha後顯示之.
+(2) 在 "xgrafx.cpp", "xgrafx.h"中新增了函數
+        void    float_rgb2hls(float r, float g, float b, float *h, float *l, float *s);
+        void    float_rgb2hsv(float r, float g, float b, float *h, float *s, float *v);
+    顏色模型的轉換.
+
+
+2001.7.13.
+---------------------------------------------------------------------
+修改了 "winfont.cpp" 中判斷是否超出bitmap邊界的部份, 將原來用
+SCREEN_WIDTH,SCREEN_HEIGHT的部份改為bitmap->w, bitmap->h.
+這樣我們可以對一個大於一個screen的bitmap來作顯示漢字的操作.
+
+
+
+2001.7.3.
+---------------------------------------------------------------------
+(1) 新增加了函數("winmain.cpp","winmain.h")
+    SetAppMenu(LPCTSTR lpszMenuName, HMENU hMenu);
+        以設定窗口選單, ●不過目前還不支持對於選單的操作.
+    SetScreenMode(DWORD dwMode);
+        以控制程式運行時的方式, 包含 FULL_SCREEN_MODE 和 WINDOWS_SCREEN_MODE.
+(2) 在程式運行時按 F8 可以動態改變視窗的顯示模式(FULL_SCREEN_MODE 或 WINDOWS_SCREEN_MODE)
+
+
+
+2001.7.2.
+---------------------------------------------------------------------
+將 topo.cpp 中的內存操作由 malloc(n) 和 free(p) 改為:
+GlobalAlloc(GPTR, n) 和 GlobalFree(p).
+●為配合改版的需要, 增加代碼的可移植性, 以後需要開發一些底層的管理函數,
+如: memory management, file I/O, 等等.
+這樣，可以防止內存沒有釋放的錯誤，以及追蹤內存等。
+
+
+2001.7.1
+---------------------------------------------------------------------
+(Dixon)更新了big5->gb的轉換表.
+
+
+2001.6.28.
+---------------------------------------------------------------------
+(1) 在 "xcak.cpp" "xcak.h"中添加函數
+    CAKE_FRAME *    duplicate_cake_frame(CAKE_FRAME *cf);
+    用於新開闢內存, 複製一個 CAKE_FRAME.
+(2) 在 "xrle.cpp" "xrle.h"中添加函數
+    RLE *   duplicate_rle(RLE *rle);
+    用於新開闢內存, 複製一個新的 RLE.
+(3) 在 "xinput.cpp" "xinput.h"中添加函數
+    EXPORT  SLONG   FNBACK  make_mouse_image_cursor(SLONG index, CAKE_FRAME_ANI *image_cfa, SLONG frames)
+    用於產生新的滑鼠.
+
+
+2001.6.27.
+---------------------------------------------------------------------
+加入了拓扑分類函數, "topo.cpp","topo.h".
+
+
+
+2001.6.26.
+---------------------------------------------------------------------
+"xcak.cpp" 中添加了函數:
+SLONG   get_cake_frmae_ani_size(CAKE_FRAME_ANI *cfa, SLONG *sx, SLONG *sy, SLONG *ex, SLONG *ey);
+
+
+2001.6.21.
+---------------------------------------------------------------------
+修正了 winfont.cpp 中用 COPY_PUT 來顯示漢字時不能有控制字"~O0"等
+的錯誤.
+
+
+2001.6.15.
+---------------------------------------------------------------------
+重寫了 scale_put_rle(), 使之可以同時支持縮小和放大顯示 rle.
+
+
+2001.6.14.
+---------------------------------------------------------------------
+系統中加入了 game_now_time 和 game_start_time 兩個時間相關的變量.
+系統初始化時會獲得作業系統的當前時間作為遊戲開始時間, 在idle_loop()
+中會獲得系統當前時間.
+
+
+
+2001.6.13.
+---------------------------------------------------------------------
+修正了 make_rle()中轉換小影像時的錯誤.
+原因: 為壓縮數據預分配的空間過小, 沒有考慮到行結束code和影像結束code.
+修正了 create_rle() 中 rle->line[0] 指針付值的錯誤.
+○●本錯誤不會影想到目前引擎的任何功能, 但是, 如果以後需要改寫或者優化
+  顯示 rle 的模組(按照逐行顯示), 會造成錯誤.
+  解決辦法是重新轉換該 rle 的圖檔.
+        
+
+
+2001.6.12.
+---------------------------------------------------------------------
+修改了 "xgrafx.cpp" 中間的幾個可能會出現 BUG 的代碼, 
+對所有分配內存後返回的指針作一個檢測, 
+如 create_abitmap(), create_mirror_bitmap()等.
+
+
+
+2001.6.7.
+---------------------------------------------------------------------
+在 "xsound.cpp" "xsound.h" 中增加了函數 get_wavfile_information().
+在 "xinput.cpp" 中的函數 get_mouse_key(), read_mouse_key() 改寫, 使之支持
+滑鼠按住某鍵時即時不動仍返回一個 MS_#Drag 的值.
+
+
+2001.5.30.
+---------------------------------------------------------------------
+在 2dengine 中新增了水波特效, 相關文件 "ripple.cpp" 和 "ripple.h".
+
+
+2001.5.29.
+---------------------------------------------------------------------
+在 sdk 中新增加了播放mp3的工程, 生成 mp3.lib 和 mp3dbg.lib.
+●但是在win98下會播放不成功, 會和 dsound 衝突.
+考慮將兩者結合起來.
+
+
+
+2001.5.27.
+---------------------------------------------------------------------
+在 xkiss 中增加了 filename_to_id() 函數, 可以將文件名轉換成32位的id.
+
+
+2001.5.26.
+---------------------------------------------------------------------
+加入了 flic 文件支持. 不過只是256色版本, 相關文件 "vflic.cpp", "vflic.h".
+同時, 為支持256色文件, 在 xgrafx 中添加函數 make_indexed_color_table().
+
+
+2001.5.24.
+---------------------------------------------------------------------
+更新了 "xgrafx.cpp" 中的函數 fade_effect(), 使之支持以 screen_buffer
+為目標的淡入淡出效果.
+
+
+2000.9.1.
+---------------------------------------------------------------------
+開始建立SDK.

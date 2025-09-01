@@ -1,0 +1,36 @@
+SYSTEM module initialize starting...
+           Vender : AuthenticAMD
+            Speed : Approx. 495 MHz(MMX)
+           Memory : 255 M
+ Operation System : WinNT
+           Locale : Traditional
+     Working Path : D:\rayssdk\samples\Game
+SYSTEM module initialized OKay.
+
+
+DRAW module initialize starting...
+    Update Screen : DirectDraw
+ VGA Pixel R mask : 0x0000f800
+ VGA Pixel G mask : 0x000007e0
+ VGA Pixel B mask : 0x0000001f
+ VGA Pixel Format : 565
+DRAW module initialized OKay.
+
+
+TIMER module initialize starting...
+       Period Max : 1000000
+       Period Min : 1
+     Begin Period : 1
+Timer Event Delay : 10 ms
+TIMER module initialized OKay.
+
+
+INPUT module initialize starting...
+INPUT module initialized OKay.
+
+
+Game Start OK
+Game Exit OK
+INPUT module free OKay.
+TIMER module free OKay.
+DRAW module free OKay.

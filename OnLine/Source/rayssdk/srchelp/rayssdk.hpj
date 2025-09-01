@@ -1,0 +1,44 @@
+; This file is maintained by HCW. Do not modify this file directly.
+
+[OPTIONS]
+COMPRESS=12 Hall Zeck
+ERRORLOG=rayssdk.log
+DBCS=Yes
+LCID=0x404 0x0 0x0 ; 中文 (台灣)
+REPORT=Yes
+CONTENTS=last_update
+TITLE=RaysSDK Help
+CNT=rayssdk.cnt
+COPYRIGHT=RaysSDK Version 1.0 Help
+CITATION=Copyright (C)2001, Rays Multimedia.
+ROOT=D:\RAYSSDK\DOC\HELP
+HLP=rayssdk.hlp
+
+[FILES]
+rtf\about.rtf
+rtf\compress.rtf
+rtf\enginefiles.rtf
+rtf\filelist.rtf
+rtf\imagefiles.rtf
+rtf\introduce.rtf
+rtf\license.rtf
+rtf\mp3.rtf
+rtf\prospect.rtf
+rtf\tipntricks.rtf
+rtf\update.rtf
+rtf\usesdk.rtf
+rtf\xcdrom.rtf
+rtf\xdraw.rtf
+rtf\xinput.rtf
+rtf\xmodule.rtf
+rtf\xplay.rtf
+rtf\xsound.rtf
+rtf\xsystem.rtf
+rtf\xtimer.rtf
+rtf\xfont.rtf
+
+[WINDOWS]
+main="RAYSSDK Help",,60416,,(r12632256),f3; RAYSSDK Help
+
+[CONFIG]
+BrowseButtons()

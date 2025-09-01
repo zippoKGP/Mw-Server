@@ -1,0 +1,32 @@
+HKCR
+{
+    Comsrv.MaxDocument.3 = s 'MaxDocument Class'
+    {
+        CLSID = s '{82B3A166-D873-4d52-99CD-BCCBAB47E766}'
+    }
+	Comsrv.MaxDocument.2 = s 'MaxDocument Class'
+	{
+		CLSID = s '{8309D779-B171-4f84-B17C-5C43E8ECC84B}'
+	}
+	Comsrv.MaxDocument.1 = s 'MaxDocument Class'
+	{
+		CLSID = s '{F40F75D9-7384-44F1-8AC1-933D8CBEA728}'
+	}
+	Comsrv.MaxDocument = s 'MaxDocument Class'
+	{
+		CLSID = s '{F40F75D9-7384-44F1-8AC1-933D8CBEA728}'
+		CurVer = s 'Comsrv.MaxDocument.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {82B3A166-D873-4d52-99CD-BCCBAB47E766} = s 'MaxDocument Class'
+		{
+			ProgID = s 'Comsrv.MaxDocument.3'
+			VersionIndependentProgID = s 'Comsrv.MaxDocument'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '{4AD72E62-5A4B-11D2-91CB-0060081C257E}'
+			'TypeLib' = s '{4AD72E61-5A4B-11D2-91CB-0060081C257E}'
+		}
+	}
+}

@@ -1,0 +1,42 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: mp3 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\test\LOCALS~1\Temp\RSPB0.tmp" with contents
+[
+/nologo /out:"\rayssdk\lib\mp3dbg.lib" 
+.\Debug\amp1dec.obj
+.\Debug\amp2dec.obj
+.\Debug\amp3dec.obj
+.\Debug\ampdec.obj
+.\Debug\ampsynth.obj
+.\Debug\binfarc.obj
+.\Debug\binfcon.obj
+.\Debug\binfhttp.obj
+.\Debug\binfile.obj
+.\Debug\binfilef.obj
+.\Debug\binfmem.obj
+.\Debug\binfplnt.obj
+.\Debug\binfplwv.obj
+.\Debug\binfstd.obj
+.\Debug\binftcp.obj
+.\Debug\dummy.obj
+.\Debug\mp3.obj
+.\Debug\mpgsplit.obj
+.\Debug\timer.obj
+]
+Creating command line "link.exe -lib @C:\DOCUME~1\test\LOCALS~1\Temp\RSPB0.tmp"
+<h3>Output Window</h3>
+Creating library...
+
+
+
+<h3>Results</h3>
+mp3dbg.lib - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: chatserver - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP3F8.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "../public/valve" /I "../public" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FR"Debug/" /Fp"Debug/chatserver.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"G:\tank\src_main\chatserver\chatserver.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP3F8.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP3F9.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/chatsvr.pdb" /debug /machine:I386 /out:"Debug/chatsvr.exe" /pdbtype:sept 
+.\Debug\chatserver.obj
+.\Debug\Cout.obj
+.\Debug\Friends.obj
+.\Debug\gmtools.obj
+.\Debug\interface.obj
+.\Debug\MailMsg.obj
+.\Debug\MailMsgManager.obj
+.\Debug\Player.obj
+.\Debug\PlayerManager.obj
+.\Debug\Scene.obj
+.\Debug\SceneManager.obj
+.\Debug\StopTalk.obj
+.\Debug\StopTalkManager.obj
+.\Debug\WBConnect.obj
+.\Debug\Worldbase.obj
+.\Debug\WorldbaseConfig.obj
+.\Debug\WorldbaseManager.obj
+.\Debug\WorldbaseManagerConfig.obj
+.\Debug\chatserver.res
+..\lib\libmySQL.lib
+..\lib\UGClass.lib
+..\lib\UGPlat_lib.lib
+..\lib\public\vstdlib.lib
+..\lib\public\tier0.lib
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP3F9.tmp"
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP3FA.bat" with contents
+[
+@echo off
+if exist ..\..\chatsvr\chatsvr.exe  attrib -r ..\..\chatsvr\chatsvr.exe
+copy .\Debug\chatsvr.exe ..\..\chatsvr\chatsvr.exe
+]
+Creating command line "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP3FA.bat"
+Compiling...
+chatserver.cpp
+Linking...
+<h3>Output Window</h3>
+Performing Custom Build Step on .\Debug\chatsvr.exe
+已复制         1 个文件。
+
+
+
+<h3>Results</h3>
+chatsvr.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="engine" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Win32 Release">
+				<Option output="Release/main" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Release" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-W" />
+					<Add option="-fexceptions" />
+					<Add option="-O2" />
+					<Add option="-DWIN32" />
+					<Add option="-DNDEBUG" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-D_MBCS" />
+					<Add option="-DNO_EXPORT" />
+					<Add directory="../dx9sdk/lib" />
+					<Add directory="../public" />
+					<Add directory="../rayssdk/include" />
+					<Add directory="../dx9sdk/include" />
+					<Add directory="../public/valve" />
+				</Compiler>
+				<Linker>
+					<Add library="kernel32" />
+					<Add library="user32" />
+					<Add library="gdi32" />
+					<Add library="winspool" />
+					<Add library="comdlg32" />
+					<Add library="advapi32" />
+					<Add library="shell32" />
+					<Add library="ole32" />
+					<Add library="oleaut32" />
+					<Add library="uuid" />
+					<Add library="odbc32" />
+					<Add library="odbccp32" />
+					<Add directory="../lib" />
+					<Add directory="../rayssdk/lib" />
+					<Add directory="../dx9sdk/lib" />
+				</Linker>
+			</Target>
+			<Target title="Win32 Debug">
+				<Option output="/home/alban/Desktop/mw/神界online全套源码.7z.001_FILES/神界OnLine/神界Source/engine/Debug/engine" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Debug" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-W" />
+					<Add option="-fexceptions" />
+					<Add option="-g" />
+					<Add option="-DWIN32" />
+					<Add option="-D_DEBUG" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-D_MBCS" />
+					<Add option="-DNO_EXPORT" />
+					<Add directory="../dx9sdk/include" />
+					<Add directory="../public" />
+					<Add directory="../rayssdk/include" />
+					<Add directory="../public/valve" />
+				</Compiler>
+				<Linker>
+					<Add library="kernel32" />
+					<Add library="user32" />
+					<Add library="gdi32" />
+					<Add library="winspool" />
+					<Add library="comdlg32" />
+					<Add library="advapi32" />
+					<Add library="shell32" />
+					<Add library="ole32" />
+					<Add library="oleaut32" />
+					<Add library="uuid" />
+					<Add library="odbc32" />
+					<Add library="odbccp32" />
+				</Linker>
+			</Target>
+		</Build>
+		<Unit filename="../lib/ChatWindow.lib" />
+		<Unit filename="../lib/chat.lib" />
+		<Unit filename="../lib/control_src.lib" />
+		<Unit filename="../lib/ijl15.lib" />
+		<Unit filename="../lib/public/tier0.lib" />
+		<Unit filename="../lib/public/vstdlib.lib" />
+		<Unit filename="../lib/utillib.lib" />
+		<Unit filename="../public/ChatWindow.h" />
+		<Unit filename="../public/UGSQL.h" />
+		<Unit filename="../public/chat_info.h" />
+		<Unit filename="../public/data.h" />
+		<Unit filename="../public/door_info.h" />
+		<Unit filename="../public/ichat.h" />
+		<Unit filename="../public/idoorserver.h" />
+		<Unit filename="../public/ijl.h" />
+		<Unit filename="../public/login.h" />
+		<Unit filename="../public/macrodef.h" />
+		<Unit filename="../public/map.h" />
+		<Unit filename="../public/map_info.h" />
+		<Unit filename="../public/player_info.h" />
+		<Unit filename="../public/recording.h" />
+		<Unit filename="../public/ugdef.h" />
+		<Unit filename="../public/valve/interface.cpp" />
+		<Unit filename="../public/valve/interface.h" />
+		<Unit filename="../public/version.h" />
+		<Unit filename="../public/zconf.h" />
+		<Unit filename="../public/zlib.h" />
+		<Unit filename="Jpg.cpp" />
+		<Unit filename="Jpg.h" />
+		<Unit filename="TextMsg.h" />
+		<Unit filename="VersionNo.h" />
+		<Unit filename="Weather.cpp" />
+		<Unit filename="Weather.h" />
+		<Unit filename="account.cpp" />
+		<Unit filename="account.h" />
+		<Unit filename="chat_msg.cpp" />
+		<Unit filename="chat_msg.h" />
+		<Unit filename="data_proc.cpp" />
+		<Unit filename="data_proc.h" />
+		<Unit filename="dm_music.cpp" />
+		<Unit filename="dm_music.h" />
+		<Unit filename="edit.cpp" />
+		<Unit filename="edit.h" />
+		<Unit filename="engine_global.cpp" />
+		<Unit filename="engine_global.h" />
+		<Unit filename="entry.cpp" />
+		<Unit filename="fight.CPP" />
+		<Unit filename="fight.h" />
+		<Unit filename="findpath.cpp" />
+		<Unit filename="findpath.h" />
+		<Unit filename="game.cpp" />
+		<Unit filename="game.h" />
+		<Unit filename="gamemain.cpp" />
+		<Unit filename="gamemain.h" />
+		<Unit filename="graph.cpp" />
+		<Unit filename="graph.h" />
+		<Unit filename="macro.cpp" />
+		<Unit filename="macro.h" />
+		<Unit filename="net.cpp" />
+		<Unit filename="net.h" />
+		<Unit filename="net_msg.cpp" />
+		<Unit filename="net_msg.h" />
+		<Unit filename="res/main.ico" />
+		<Unit filename="resource.h" />
+		<Unit filename="resource.rc" />
+		<Unit filename="system.cpp" />
+		<Unit filename="system.h" />
+		<Unit filename="taskman.cpp" />
+		<Unit filename="taskman.h" />
+		<Unit filename="utility.cpp" />
+		<Unit filename="utility.h" />
+		<Unit filename="vari-ext.h" />
+		<Unit filename="variable.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

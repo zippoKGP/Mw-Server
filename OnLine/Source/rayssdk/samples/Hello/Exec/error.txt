@@ -1,0 +1,79 @@
+SYSTEM module initialize starting...
+           Vender : AuthenticAMD
+            Speed : Approx. 494 MHz
+           Memory : 255 M
+ Operation System : WinNT
+           Locale : Traditional
+     Working Path : D:\rayssdk\samples\Hello\Exec
+SYSTEM module initialized OKay.
+
+
+DRAW module initialize starting...
+    Update Screen : DirectDraw
+ VGA Pixel Format : 565
+DRAW module initialized OKay.
+
+
+TIMER module initialize starting...
+       Period Max : 1000000
+       Period Min : 1
+     Begin Period : 1
+Timer Event Delay : 10 ms
+TIMER module initialized OKay.
+
+
+INPUT module initialize starting...
+INPUT module initialized OKay.
+
+
+	
+before idle_loop() of idle_main() 
+after idle_loop() of idle_main() 
+before idle_loop() of idle_main() 
+after idle_loop() of idle_main() 
+before idle_loop() of idle_main() 
+after idle_loop() of idle_main() 
+before idle_loop() of idle_main() 
+after idle_loop() of idle_main() 
+before idle_loop() of idle_main() 
+after idle_loop() of idle_main() 
+before idle_loop() of idle_main() 
+after idle_loop() of idle_main() 
+before idle_loop() of idle_main() 
+after idle_loop() of idle_main() 
+before idle_loop() of idle_main() 
+after idle_loop() of idle_main() 
+before idle_loop() of idle_main() 
+after idle_loop() of idle_main() 
+before idle_loop() of idle_main() 
+after idle_loop() of idle_main() 
+before idle_loop() of idle_main() 
+after idle_loop() of idle_main() 
+before idle_loop() of idle_main() 
+after idle_loop() of idle_main() 
+before idle_loop() of idle_main() 
+after idle_loop() of idle_main() 
+before idle_loop() of idle_main() 
+after idle_loop() of idle_main() 
+before idle_loop() of idle_main() 
+after idle_loop() of idle_main() 
+before idle_loop() of idle_main() 
+after idle_loop() of idle_main() 
+before idle_loop() of idle_main() 
+after idle_loop() of idle_main() 
+before idle_loop() of idle_main() 
+after idle_loop() of idle_main() 
+before idle_loop() of idle_main() 
+after idle_loop() of idle_main() 
+before idle_loop() of idle_main() 
+after idle_loop() of idle_main() 
+before idle_loop() of idle_main() 
+after idle_loop() of idle_main() 
+before idle_loop() of idle_main() 
+after idle_loop() of idle_main() 
+before idle_loop() of idle_main() 
+after idle_loop() of idle_main() 
+	
+INPUT module free OKay.
+TIMER module free OKay.
+DRAW module free OKay.

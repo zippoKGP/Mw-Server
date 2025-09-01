@@ -1,0 +1,11 @@
+;LIBRARY      "VisualMS"
+EXPORTS
+ LibDescription       @1
+ LibNumberClasses     @2
+ LibClassDesc         @3
+ LibVersion           @4
+ DllCanUnloadNow      PRIVATE
+ DllGetClassObject    PRIVATE
+
+SECTIONS
+ .data READ WRITE

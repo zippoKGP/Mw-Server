@@ -1,0 +1,35 @@
+# Visual Studio / Windows builds
+.vs/
+Debug/
+Release/
+x64/
+x86/
+ipch/
+*.obj
+*.pch
+*.pdb
+*.ilk
+*.idb
+*.exe
+*.dll
+*.lib
+*.exp
+*.log
+
+# Archives & installers
+*.zip
+*.7z
+*.rar
+*.msi
+
+# OS/editor noise
+Thumbs.db
+.DS_Store
+*.swp
+
+# Credentials/secrets (adjust to your project)
+*.key
+*.crt
+*.pem
+*.pfx
+.env

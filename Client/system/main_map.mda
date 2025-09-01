@@ -1,0 +1,43 @@
+	if (marco_get_key() == 68) then
+		if (marco_get_int_var(1) == 1) then
+			marco_set_int_var(1, 0)	
+		else
+			marco_set_int_var(1, 1)
+		end
+
+
+	end
+	if (marco_get_int_var(1) == 1) then
+		marco_draw_icon(0, 0, "system//mend.mda", "MainCommand1")
+	end
+
+	current_task = -1
+	for i=1,64 do
+		if (marco_get_state_var(i-1) == 1) then
+			current_task = i-1	
+		end
+	end
+
+	if (current_task >= 0) then
+		button_result = marco_get_button_result(current_task, 390, 520, marco_get_int_var(0))
+		if ((button_result == 1) or (marco_get_int_var(0) == 1)) then
+			--在这里将参数压入堆栈marco_set_int_var,在子lua中使用marco_set_exec_result
+			--设定返回值
+			--current_task 为当前触发的marcoid
+--
+				
+			window_result = marco_show_message_text_ext("system\\help.mda", -1, 100, 100, current_task)
+
+			marco_set_exec_result(0, window_result)
+			
+--			
+			--通过marco_get_exec_result(0)可以取得执行结果
+			if (marco_get_exec_result(0) == 0) then
+				marco_set_int_var(0, 1)
+			else
+				marco_set_state_var(current_task, 0)
+				marco_set_int_var(0, -1)		
+			end
+		end
+	end
+

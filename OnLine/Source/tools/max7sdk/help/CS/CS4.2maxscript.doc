@@ -1,0 +1,113 @@
+{\rtf1\ansi\ansicpg1252\uc1\deff0\stshfdbch0\stshfloch0\stshfhich0\stshfbi0\deflang1033\deflangfe1033{\fonttbl{\f0\froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f1\fswiss\fcharset0\fprq2{\*\panose 020b0604020202020204}Arial;}
+{\f37\froman\fcharset238\fprq2 Times New Roman CE;}{\f38\froman\fcharset204\fprq2 Times New Roman Cyr;}{\f40\froman\fcharset161\fprq2 Times New Roman Greek;}{\f41\froman\fcharset162\fprq2 Times New Roman Tur;}
+{\f42\froman\fcharset177\fprq2 Times New Roman (Hebrew);}{\f43\froman\fcharset178\fprq2 Times New Roman (Arabic);}{\f44\froman\fcharset186\fprq2 Times New Roman Baltic;}{\f45\froman\fcharset163\fprq2 Times New Roman (Vietnamese);}
+{\f47\fswiss\fcharset238\fprq2 Arial CE;}{\f48\fswiss\fcharset204\fprq2 Arial Cyr;}{\f50\fswiss\fcharset161\fprq2 Arial Greek;}{\f51\fswiss\fcharset162\fprq2 Arial Tur;}{\f52\fswiss\fcharset177\fprq2 Arial (Hebrew);}
+{\f53\fswiss\fcharset178\fprq2 Arial (Arabic);}{\f54\fswiss\fcharset186\fprq2 Arial Baltic;}{\f55\fswiss\fcharset163\fprq2 Arial (Vietnamese);}}{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;
+\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;
+\red192\green192\blue192;}{\stylesheet{\ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \snext0 Normal;}{\*\cs10 \additive \ssemihidden Default Paragraph Font;}{\*
+\ts11\tsrowd\trftsWidthB3\trpaddl108\trpaddr108\trpaddfl3\trpaddft3\trpaddfb3\trpaddfr3\tscellwidthfts0\tsvertalt\tsbrdrt\tsbrdrl\tsbrdrb\tsbrdrr\tsbrdrdgl\tsbrdrdgr\tsbrdrh\tsbrdrv 
+\ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1024\langfe1024\cgrid\langnp1024\langfenp1024 \snext11 \ssemihidden Normal Table;}}{\*\rsidtbl \rsid1711876\rsid10165026}{\*\generator Microsoft Word 10.0.4219;}{\info
+{\author Autodesk, Inc.}{\operator Autodesk, Inc.}{\creatim\yr2004\mo8\dy23\hr11\min57}{\revtim\yr2004\mo8\dy23\hr12}{\version2}{\edmins0}{\nofpages3}{\nofwords626}{\nofchars3573}{\*\company Autodesk, Inc.}{\nofcharsws4191}{\vern16469}}
+\widowctrl\ftnbj\aenddoc\noxlattoyen\expshrtn\noultrlspc\dntblnsbdb\nospaceforul\hyphcaps0\horzdoc\dghspace120\dgvspace120\dghorigin1701\dgvorigin1984\dghshow0\dgvshow3\jcompress\viewkind4\viewscale150\nolnhtadjtbl\rsidroot10165026 \fet0\sectd 
+\linex0\sectdefaultcl\sftnbj {\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl2\pnucltr\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl4
+\pnlcltr\pnstart1\pnindent720\pnhang {\pntxta )}}{\*\pnseclvl5\pndec\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl6\pnlcltr\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang {\pntxtb (}
+{\pntxta )}}{\*\pnseclvl8\pnlcltr\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}\pard\plain \ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 
+\fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\b\f1\fs36\insrsid10165026 NEW FOR CS 4.2 }{\f1\fs20\insrsid10165026 
+\par }{\b\f1\insrsid10165026 
+\par New Maxscript / SDK Calls.}{\f1\insrsid10165026 
+\par }{\f1\fs20\insrsid10165026 
+\par The following will set a given IK key for the given biped node.
+\par 
+\par }{\i\f1\fs20\insrsid10165026 biped.setPlantedKey <node>
+\par biped.setSlidingKey <node>
+\par biped.setFreeKey <node>}{\f1\fs20\insrsid10165026 
+\par 
+\par 
+\par This function will reset a limbs IK pivot points, which is useful if you are seeing oddities (such as popping) when you are using scale subanims.  Also note that there is an accelerator for this function.
+\par 
+\par }{\i\f1\fs20\insrsid10165026 biped.resetAllLimbKeys <biped_ctrl>
+\par 
+\par }{\f1\fs20\insrsid10165026 This function will bake the Move All Mode information directly into the biped.  There is also an accelerator key for this function.
+\par  
+\par }{\i\f1\fs20\insrsid10165026 biped.collapseMoveAllMode<biped_ctrl>}{\f1\fs20\insrsid10165026 
+\par 
+\par }{\b\f1\insrsid10165026 New Maxscript Calls.}{\f1\fs20\insrsid10165026 
+\par 
+\par The following are new maxscript functions that mirror functionality that was previously only accessible via the SDK.
+\par 
+\par Bending/Scaling Footprints
+\par 
+\par }{\i\f1\fs20\insrsid10165026 biped.bendFootprints <biped_ctrl> <float> --angle in degrees
+\par biped.scaleFootprints <biped_ctrl> <float> --angle in degrees}{\f1\fs20\insrsid10165026 
+\par 
+\par Biped Animation Range
+\par 
+\par }{\i\f1\fs20\insrsid10165026 <Interval> biped.getCurrentRange <biped_ctrl>}{\f1\fs20\insrsid10165026 
+\par 
+\par The id and link values for a particular biped node. The 'x' value is the id and the 'y' value is the link.  An id value of -1 means the node isn't part of a biped.
+\par 
+\par }{\i\f1\fs20\insrsid10165026 <Point2> biped.getIdLink <node>}{\f1\fs20\insrsid10165026 
+\par 
+\par Collection of functions useful for a biped interpolater that uses the internal biped hierarchy.
+\par 
+\par }{\i\f1\fs20\insrsid10165026 <INode > biped.getRotParentNode <node>
+\par <INode > biped.getPosParentNode <node>
+\par <Quat > biped.getParentNodeRot <node>
+\par <Point3 > biped.getParentNodePos <node>
+\par <Point2> biped.getClavicleVals <node> --2 angles in degrees
+\par <float> biped.getHingeVal <node>  --in degrees
+\par <float> biped.getHorseAnkleVal <node>  --in degrees
+\par <float> biped.getPelvisVal <node>  --in degrees
+\par <float> biped.getFingerVal <node> --in degrees}{\f1\fs20\insrsid10165026 
+\par 
+\par Convenience functions for getting the different biped COM controls.
+\par 
+\par }{\i\f1\fs20\insrsid10165026 <Control> biped.getHorizontalControl <biped_ctrl>
+\par <Control> biped.getVerticalControl <biped_ctrl>
+\par <Control> biped.getTurnControl <biped_ctrl>
+\par 
+\par }{\b\f1\fs36\insrsid10165026 NEW FOR CS 4.2a
+\par 
+\par }{\f1\fs20\insrsid10165026 The function 
+\par 
+\par }{\i\f1\fs20\insrsid10165026 biped.dosetmultiplekeysdlg <biped_controller>
+\par 
+\par }{\f1\fs20\insrsid10165026 will bring up the old set multiple keys dialog in a popup.  While the function
+\par 
+\par }{\i\f1\fs20\insrsid10165026 biped.setmultiplekeys <biped_controller>
+\par 
+\par }{\f1\fs20\insrsid10165026 will apply increment without bring up the dialog.
+\par 
+\par The maxscript and SDK load .bip function call was modified to  handle selecting which max objects or subanims you wish to load.  Correspondingly, the save and savesegment .bip function also now lets you selectively pick objects
+ and subanims to save,previously it didn't.  Their maxscript usage is now 
+\par }{\i\f1\fs20\insrsid10165026 
+\par biped.loadBipFile <biped_ctrl> <file_name> [#matchFileStru
+ct] [#zeroHgt] [#noRedraw] [#loadMaxObjects][#promptForDuplicates] [#retargetHeight] [#retargetLimbSizes] [#scaleIKObjectSize] [#loadSubAnimControllers] [#loadSelectedMaxObjects nodename_array] [#loadSelectedSubAnimControllers bipednodename_array int_arra
+y]
+\par 
+\par biped.saveBipFile <biped_ctrl> <file_name> [#saveSubAnimControllers]  [#saveMaxObjects] [#saveSelectedMaxObjects node_array] [#saveSelectedSubAnimControllers node_array int_array ]
+\par biped.saveBipFileSegment <biped_ctrl> <file_name> <StartSeg> <EndSeg> [#keyPerFrame] [#saveSubAnimControllers]  [#saveMaxObjects] [#saveSelectedMaxObjects node_array] [#saveSelectedSubAnimControllers node_array int_array ]
+\par 
+\par }{\f1\fs20\insrsid10165026 Note that for the selected objects, you pass in an array of strings of the nodes you wish to load or an 
+array of nodes you wish to save.  For the selected subanims you wish to load, you pass in array of string names of the biped nodes and a corresponding array of integers which specify which subanim (0= pos, 1 = rot, 2= scale). For the subanims you wish to 
+save you pass in an array of biped nodes and an array of corresponding subanim integers.}{\b\f1\fs36\insrsid10165026 
+\par }{\f1\fs20\insrsid10165026 
+\par You can turn off biped keys in the trackbar, so that you may only just see subanim keys. The property is  
+\par }{\i\f1\fs20\insrsid10165026 <biped_controller>.showBipedInTrackBar = true|false.}{\f1\fs20\insrsid10165026  }{\b\f1\fs36\insrsid10165026 
+\par }{\f1\fs20\insrsid10165026 
+\par }{\f1\fs20\insrsid10165026 
+\par }\pard \ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0\pararsid10165026 {\b\f1\fs36\insrsid10165026 NEW FOR CS 4.2++
+\par 
+\par }{\f1\fs20\insrsid10165026 The function
+\par }\pard \ql \fi720\li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0\pararsid10165026 {\i\f1\fs20\insrsid10165026 biped.clearanimation <biped_controller>
+\par }\pard \ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0\pararsid10165026 {\f1\fs20\insrsid10165026 will remove all of the animation from the biped. While the function 
+\par }\pard \ql \fi720\li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0\pararsid10165026 {\i\f1\fs20\insrsid10165026 biped.clearselectedanimation <biped_controller>
+\par }\pard \ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0\pararsid10165026 {\f1\fs20\insrsid10165026 will clear only the animation for those biped body parts which are selected.
+\par 
+\par The function
+\par }\pard \ql \fi720\li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0\pararsid10165026 {\i\f1\fs20\insrsid10165026 biped.mirror <biped_controller>
+\par }\pard \ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0\pararsid10165026 {\f1\fs20\insrsid10165026 will mirror the biped\rquote s animation.
+\par 
+\par The function
+\par }{\i\f1\fs20\insrsid10165026\charrsid8600492 biped.setSnapKey <biped_node>}{\f1\fs20\insrsid10165026  will set the snap key for a layer
+\par }}

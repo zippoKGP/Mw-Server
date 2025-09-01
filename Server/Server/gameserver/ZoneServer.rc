@@ -1,0 +1,611 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Korean resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 18, 1\r\n"
+    "#pragma code_page(949)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""ZoneServer.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.kor\\afxres.rc""          // Standard components\r\n"
+    "#include ""l.kor\\afxprint.rc""        // printing/print preview resources\r\n"
+    "#include ""l.kor\\afxdb.rc""           // Database resources\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "ZoneServer.ico"
+IDR_GAMESETYPE          ICON    DISCARDABLE     "ZoneServerDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+    BUTTON      ID_MENU_DISPLAY
+    BUTTON      ID_BUTTON_WRITELOG
+    BUTTON      ID_BUTTON_MONSTER
+    BUTTON      ID_BUTTON_DUMMY
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "파일(&F)"
+    BEGIN
+        MENUITEM SEPARATOR
+        MENUITEM "종료(&X)",                    ID_APP_EXIT
+    END
+    POPUP "도움말(&H)"
+    BEGIN
+        MENUITEM "GameServer 정보(&A)...",      ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY 
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "GameServer 정보"
+FONT 9, "굴림"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "GameServer 버전 1.0",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2001",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "확인",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_GAMESERVER_FORM DIALOG DISCARDABLE  0, 0, 373, 199
+STYLE WS_CHILD
+FONT 9, "굴림"
+BEGIN
+    PUSHBUTTON      "Log File",IDC_BUTTON_LOGFILE,89,7,40,14
+    PUSHBUTTON      "Monster",IDC_BUTTON_MONSTER,48,7,40,14
+    PUSHBUTTON      "Display All",IDC_BUTTON_DISPLAYALL,7,7,40,14
+    PUSHBUTTON      "10분후 닫힘공지",IDC_BUTTON_PreClose,130,7,50,14
+    PUSHBUTTON      "Server Close",IDC_BUTTON_ServerClose,182,7,50,14
+END
+
+IDD_DIALOG_DISPLAY DIALOG DISCARDABLE  0, 0, 218, 221
+STYLE WS_CHILD | WS_VISIBLE | WS_BORDER | WS_VSCROLL | WS_HSCROLL
+FONT 10, "System"
+BEGIN
+END
+
+IDD_DIALOG_MAPTAB DIALOG DISCARDABLE  0, 0, 136, 252
+STYLE WS_CHILD | WS_VISIBLE | WS_CAPTION
+CAPTION "Map"
+FONT 10, "System"
+BEGIN
+    CONTROL         "Tree1",IDC_TREE_MAP,"SysTreeView32",TVS_HASBUTTONS | 
+                    TVS_HASLINES | TVS_LINESATROOT | WS_BORDER | WS_TABSTOP,
+                    7,7,122,216
+    PUSHBUTTON      "맵선택",IDC_BUTTON_MAPCHANGE,79,231,50,14
+END
+
+IDD_DIALOG_SERVERTAB DIALOG DISCARDABLE  0, 0, 136, 252
+STYLE WS_CHILD | WS_VISIBLE | WS_CAPTION
+CAPTION "Server"
+FONT 10, "System"
+BEGIN
+    CONTROL         "Tree1",IDC_TREE_SERVER,"SysTreeView32",TVS_HASBUTTONS | 
+                    TVS_HASLINES | TVS_LINESATROOT | WS_BORDER | WS_TABSTOP,
+                    7,7,122,214
+    PUSHBUTTON      "Update",IDC_BUTTON_UPDATESERVER,79,231,50,14
+END
+
+IDD_DIALOG_SEARCH DIALOG DISCARDABLE  0, 0, 106, 100
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Object Search"
+FONT 10, "System"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,79,38,14
+    PUSHBUTTON      "Cancel",IDCANCEL,62,79,37,14
+    LTEXT           "Object Kind",IDC_STATIC,9,9,38,8
+    LTEXT           "Object ID",IDC_STATIC,9,25,31,8
+    LTEXT           "Object Index",IDC_STATIC,9,41,42,8
+    EDITTEXT        IDC_EDIT_OBJECT_INDEX,59,39,40,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    COMBOBOX        IDC_COMBO_ObjectKind,51,8,48,62,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_ObjectID,51,23,48,74,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_CharName,44,59,55,14,ES_AUTOHSCROLL
+    LTEXT           "CharName",IDC_STATIC,7,62,35,8
+END
+
+IDD_DIALOG_OBJECTTAB DIALOG DISCARDABLE  0, 0, 136, 253
+STYLE WS_CHILD | WS_VISIBLE | WS_CAPTION
+CAPTION "Object"
+FONT 10, "System"
+BEGIN
+    CONTROL         "Tree1",IDC_TREE_OBJECT,"SysTreeView32",TVS_HASBUTTONS | 
+                    TVS_HASLINES | TVS_LINESATROOT | WS_BORDER | WS_TABSTOP,
+                    7,7,122,218
+    PUSHBUTTON      "Update",IDC_BUTTON_UPDATE,7,232,27,14
+    PUSHBUTTON      "Auto",IDC_BUTTON_AUTO,38,232,28,14
+    PUSHBUTTON      "Search",IDC_BUTTON_SEARCH,101,232,28,14
+    PUSHBUTTON      "Destory",IDC_BUTTON_DESTORY,69,232,28,14
+END
+
+IDD_DIALOG_IPXTAB DIALOG DISCARDABLE  0, 0, 122, 246
+STYLE WS_CHILD | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "In Line"
+FONT 10, "System"
+BEGIN
+    LTEXT           "최대 소켓수",IDC_STATIC,7,10,43,8
+    LTEXT           "접속 소켓수",IDC_STATIC,7,26,43,8
+    LTEXT           "받은 바이트",IDC_STATIC,7,42,43,8
+    LTEXT           "보낸 바이트",IDC_STATIC,7,58,43,8
+    LTEXT           "받은 에러",IDC_STATIC,7,75,35,8
+    LTEXT           "보낸 에러",IDC_STATIC,7,90,35,8
+    LTEXT           "정상 소켓",IDC_STATIC,7,106,35,8
+    LTEXT           "보낸 블럭",IDC_STATIC,7,122,35,8
+    LTEXT           "빈 Buf List Size",IDC_STATIC,7,138,53,8
+    EDITTEXT        IDC_EDIT_MAXSOCKETNUM,75,7,40,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
+    EDITTEXT        IDC_EDIT_CONNSOCKETNUM,75,23,40,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
+    EDITTEXT        IDC_EDIT_RECVBYTE,75,39,40,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER
+    EDITTEXT        IDC_EDIT_SENDBYTE,75,55,40,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER
+    EDITTEXT        IDC_EDIT_RecvErr,75,71,40,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER
+    EDITTEXT        IDC_EDIT_SendErr,75,87,40,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER
+    EDITTEXT        IDC_EDIT_SendBlock,75,119,40,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
+    EDITTEXT        IDC_EDIT_BUFLIST,75,135,40,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER
+    LTEXT           "이상한 메시지",IDC_STATIC,7,153,51,8
+    EDITTEXT        IDC_EDIT_ODDMSG,75,151,40,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER
+    PUSHBUTTON      "Update List Size",IDC_BUTTON_UPDATELISTSIZE,56,225,59,
+                    14
+    EDITTEXT        IDC_EDIT_SENDSOCKETNUM,75,103,40,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
+END
+
+IDD_DIALOG_TCPTAB DIALOG DISCARDABLE  0, 0, 122, 253
+STYLE WS_CHILD | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Out Line"
+FONT 10, "System"
+BEGIN
+    LTEXT           "User in Lobby",IDC_STATIC,7,10,66,8
+    LTEXT           "Recv Size",IDC_STATIC,7,58,34,8
+    LTEXT           "Send Size",IDC_STATIC,7,74,34,8
+    LTEXT           "Recv Err/Blk",IDC_STATIC,7,90,42,8
+    LTEXT           "Send Err/Blk",IDC_STATIC,7,106,42,8
+    EDITTEXT        IDC_EDIT_CONNSOCKETNUM,76,23,39,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
+    EDITTEXT        IDC_EDIT_RECVBYTE,62,55,51,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER
+    EDITTEXT        IDC_EDIT_SENDBYTE,62,71,51,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER
+    EDITTEXT        IDC_EDIT_RecvErr,54,87,30,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER
+    EDITTEXT        IDC_EDIT_SendErr,54,103,30,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER
+    EDITTEXT        IDC_EDIT_SendBlock,85,103,28,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
+    LTEXT           "Odd Msg",IDC_STATIC,7,185,30,8
+    EDITTEXT        IDC_EDIT_ODDMSG,75,183,38,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER
+    EDITTEXT        IDC_EDIT_RecvBlk,85,87,28,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER
+    LTEXT           "User in Field",IDC_STATIC,7,28,51,8
+    EDITTEXT        IDC_EDIT_CONNNUM,76,7,39,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER
+END
+
+IDD_DIALOG_Loading DIALOG DISCARDABLE  0, 0, 159, 48
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE
+FONT 10, "System"
+BEGIN
+    LTEXT           "서버 가동중",IDC_STATIC,41,20,43,8
+    LTEXT           "start",IDC_STATIC_Load,50,33,16,8
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041204B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "GameServer MFC 응용 프로그램\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "GameServer\0"
+            VALUE "LegalCopyright", "Copyright (C) 2001\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "GameServer.EXE\0"
+            VALUE "ProductName", "GameServer 응용 프로그램\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x412, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_GAMESERVER_FORM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 366
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 192
+    END
+
+    IDD_DIALOG_DISPLAY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 203
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 206
+    END
+
+    IDD_DIALOG_MAPTAB, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 129
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 245
+    END
+
+    IDD_DIALOG_SERVERTAB, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 129
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 245
+    END
+
+    IDD_DIALOG_SEARCH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 99
+        TOPMARGIN, 8
+        BOTTOMMARGIN, 93
+    END
+
+    IDD_DIALOG_OBJECTTAB, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 129
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 246
+    END
+
+    IDD_DIALOG_IPXTAB, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 115
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 239
+    END
+
+    IDD_DIALOG_TCPTAB, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 115
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 246
+    END
+
+    IDD_DIALOG_Loading, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 152
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 41
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_DIALOG_SEARCH DLGINIT
+BEGIN
+    IDC_COMBO_ObjectKind, 0x403, 1, 0
+"\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "GameServer\n\nGameSe\n\n\nGameServer.Document\nGameSe Document"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "GameServer"
+    AFX_IDS_IDLEMESSAGE     "준비"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+    ID_INDICATOR_FRAME      " "
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "새 문서를 작성합니다\n새 파일"
+    ID_FILE_OPEN            "기존 문서를 엽니다\n열기"
+    ID_FILE_CLOSE           "현재 열린 문서를 닫습니다\n닫기"
+    ID_FILE_SAVE            "현재 열린 문서를 저장합니다\n저장"
+    ID_FILE_SAVE_AS         "현재 열린 문서를 다른 이름으로 저장합니다\n다른 이름으로 저장"
+    ID_FILE_PAGE_SETUP      "인쇄 옵션을 변경합니다\n쪽 설정"
+    ID_FILE_PRINT_SETUP     "프린터와 인쇄 옵션을 변경합니다\n인쇄 설정"
+    ID_FILE_PRINT           "현재 열린 문서를 인쇄합니다\n인쇄"
+    ID_FILE_PRINT_PREVIEW   "쪽 전체를 표시합니다\n인쇄 미리 보기"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "프로그램 정보와 버전 정보, 저작권 정보를 표시합니다\n정보"
+    ID_APP_EXIT             "응용 프로그램을 종료하기 위해 문서를 저장할 것인지 묻습니다\n종료"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "이 문서를 엽니다"
+    ID_FILE_MRU_FILE2       "이 문서를 엽니다"
+    ID_FILE_MRU_FILE3       "이 문서를 엽니다"
+    ID_FILE_MRU_FILE4       "이 문서를 엽니다"
+    ID_FILE_MRU_FILE5       "이 문서를 엽니다"
+    ID_FILE_MRU_FILE6       "이 문서를 엽니다"
+    ID_FILE_MRU_FILE7       "이 문서를 엽니다"
+    ID_FILE_MRU_FILE8       "이 문서를 엽니다"
+    ID_FILE_MRU_FILE9       "이 문서를 엽니다"
+    ID_FILE_MRU_FILE10      "이 문서를 엽니다"
+    ID_FILE_MRU_FILE11      "이 문서를 엽니다"
+    ID_FILE_MRU_FILE12      "이 문서를 엽니다"
+    ID_FILE_MRU_FILE13      "이 문서를 엽니다"
+    ID_FILE_MRU_FILE14      "이 문서를 엽니다"
+    ID_FILE_MRU_FILE15      "이 문서를 엽니다"
+    ID_FILE_MRU_FILE16      "이 문서를 엽니다"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "다음 창으로 전환합니다\n다음 창"
+    ID_PREV_PANE            "이전 창으로 전환합니다\n이전 창"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "현재 열린 창을 나눕니다\n나누기"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "선택 부분을 지웁니다\n지우기"
+    ID_EDIT_CLEAR_ALL       "모든 것을 지웁니다\n모두 지우기"
+    ID_EDIT_COPY            "선택 부분을 복사하여 클립보드에 넣습니다\n복사"
+    ID_EDIT_CUT             "선택 부분을 잘라내어 클립보드에 넣습니다\n잘라내기"
+    ID_EDIT_FIND            "지정한 문자열을 찾습니다\n찾기"
+    ID_EDIT_PASTE           "클립보드의 내용을 붙여 넣습니다\n붙여넣기"
+    ID_EDIT_REPEAT          "마지막으로 실행한 동작을 반복합니다\n반복"
+    ID_EDIT_REPLACE         "지정한 문자열을 다른 문자열로 바꿉니다\n바꾸기"
+    ID_EDIT_SELECT_ALL      "문서 전체를 선택합니다\n전체 선택"
+    ID_EDIT_UNDO            "마지막으로 한 동작을 취소합니다\n실행 취소"
+    ID_EDIT_REDO            "이전에 취소한 동작을 다시 수행합니다\n다시 실행"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "도구 모음을 보이거나 감춥니다\n도구 모음 전환"
+    ID_VIEW_STATUS_BAR      "상태 표시줄을 표시하거나 감춥니다\n상태 표시줄 전환"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "창의 크기를 변경합니다"
+    AFX_IDS_SCMOVE          "창의 위치를 변경합니다"
+    AFX_IDS_SCMINIMIZE      "창을 아이콘으로 줄여서 표시합니다"
+    AFX_IDS_SCMAXIMIZE      "창을 최대 크기로 확장합니다"
+    AFX_IDS_SCNEXTWINDOW    "다음 문서 창으로 전환합니다"
+    AFX_IDS_SCPREVWINDOW    "이전 문서 창으로 전환합니다"
+    AFX_IDS_SCCLOSE         "현재 열린 창을 닫고 문서를 저장할 것인지를 묻습니다"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "창을 원래 크기로 복원합니다"
+    AFX_IDS_SCTASKLIST      "작업 목록을 활성화합니다"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "인쇄 미리 보기 모드를 닫습니다\n미리 보기 취소"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_MENU_DISPLAY         "디스플레이"
+END
+
+#endif    // Korean resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE 18, 1
+#pragma code_page(949)
+#endif //_WIN32
+#include "ZoneServer.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.kor\afxres.rc"          // Standard components
+#include "l.kor\afxprint.rc"        // printing/print preview resources
+#include "l.kor\afxdb.rc"           // Database resources
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

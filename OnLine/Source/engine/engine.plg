@@ -1,0 +1,139 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: engine - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/resource.res" /d "_DEBUG" "G:\2D\神界\神界OnLine\神界Source\engine\resource.rc"" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP4A.tmp" with contents
+[
+/nologo /MD /W3 /Gm /GX /ZI /Od /I "..\dx9sdk\include" /I "..\public" /I "..\rayssdk\include" /I "..\public\valve" /D "_DEBUG" /D "WIN32" /D "_WINDOWS" /D "_MBCS" /D "NO_EXPORT" /FR"Debug/" /Fp"Debug/engine.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"G:\2D\神界\神界OnLine\神界Source\engine\account.cpp"
+"G:\2D\神界\神界OnLine\神界Source\engine\data_proc.cpp"
+"G:\2D\神界\神界OnLine\神界Source\engine\dm_music.cpp"
+"G:\2D\神界\神界OnLine\神界Source\engine\edit.cpp"
+"G:\2D\神界\神界OnLine\神界Source\engine\engine_global.cpp"
+"G:\2D\神界\神界OnLine\神界Source\engine\entry.cpp"
+"G:\2D\神界\神界OnLine\神界Source\engine\fight.CPP"
+"G:\2D\神界\神界OnLine\神界Source\engine\findpath.cpp"
+"G:\2D\神界\神界OnLine\神界Source\engine\game.cpp"
+"G:\2D\神界\神界OnLine\神界Source\engine\gamemain.cpp"
+"G:\2D\神界\神界OnLine\神界Source\engine\graph.cpp"
+"G:\2D\神界\神界OnLine\神界Source\public\valve\interface.cpp"
+"G:\2D\神界\神界OnLine\神界Source\engine\macro.cpp"
+"G:\2D\神界\神界OnLine\神界Source\engine\system.cpp"
+"G:\2D\神界\神界OnLine\神界Source\engine\taskman.cpp"
+"G:\2D\神界\神界OnLine\神界Source\engine\utility.cpp"
+"G:\2D\神界\神界OnLine\神界Source\engine\Weather.cpp"
+"G:\2D\神界\神界OnLine\神界Source\engine\Jpg.cpp"
+"G:\2D\神界\神界OnLine\神界Source\engine\chat_msg.cpp"
+"G:\2D\神界\神界OnLine\神界Source\engine\net.cpp"
+"G:\2D\神界\神界OnLine\神界Source\engine\net_msg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP4A.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP4B.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/main.pdb" /debug /machine:I386 /nodefaultlib:"LIBCD.lib" /nodefaultlib:"libcmtd.lib" /nodefaultlib:"libc.lib" /out:"E:\余澄丹的工作\神界源码\bin\main.exe" /pdbtype:sept /libpath:"..\lib" /libpath:"..\rayssdk\lib" /libpath:"..\dx9sdk\lib" 
+".\Debug\account.obj"
+".\Debug\data_proc.obj"
+".\Debug\dm_music.obj"
+".\Debug\edit.obj"
+".\Debug\engine_global.obj"
+".\Debug\entry.obj"
+".\Debug\fight.obj"
+".\Debug\findpath.obj"
+".\Debug\game.obj"
+".\Debug\gamemain.obj"
+".\Debug\graph.obj"
+".\Debug\interface.obj"
+".\Debug\macro.obj"
+".\Debug\system.obj"
+".\Debug\taskman.obj"
+".\Debug\utility.obj"
+".\Debug\Weather.obj"
+".\Debug\Jpg.obj"
+".\Debug\chat_msg.obj"
+".\Debug\net.obj"
+".\Debug\net_msg.obj"
+".\Debug\resource.res"
+"..\lib\ijl15.lib"
+"..\lib\public\tier0.lib"
+"..\lib\public\vstdlib.lib"
+"..\lib\control_src.lib"
+"..\lib\chat.lib"
+"..\lib\utillib.lib"
+"..\lib\ChatWindow.lib"
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP4B.tmp"
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP4C.bat" with contents
+[
+@echo off
+if exist  ..\..\bin\main.exe attrib -r ..\..\bin\main.exe
+if exist E:\余澄丹的工作\神界源码\bin\main.exe copy E:\余澄丹的工作\神界源码\bin\main.exe ..\..\bin\main.exe
+]
+Creating command line "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP4C.bat"
+Compiling resources...
+Compiling...
+account.cpp
+data_proc.cpp
+dm_music.cpp
+edit.cpp
+engine_global.cpp
+entry.cpp
+fight.CPP
+G:\2D\神界\神界OnLine\神界Source\engine\fight.CPP(3105) : warning C4390: ';' : empty controlled statement found; is this the intent?
+findpath.cpp
+game.cpp
+gamemain.cpp
+graph.cpp
+interface.cpp
+macro.cpp
+system.cpp
+taskman.cpp
+utility.cpp
+Weather.cpp
+Jpg.cpp
+chat_msg.cpp
+net.cpp
+net_msg.cpp
+Linking...
+<h3>Output Window</h3>
+Performing Custom Build Step on E:\余澄丹的工作\神界源码\bin\main.exe
+已复制         1 个文件。
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP4E.tmp" with contents
+[
+/nologo /o"Debug/engine.bsc" 
+".\Debug\account.sbr"
+".\Debug\data_proc.sbr"
+".\Debug\dm_music.sbr"
+".\Debug\edit.sbr"
+".\Debug\engine_global.sbr"
+".\Debug\entry.sbr"
+".\Debug\fight.sbr"
+".\Debug\findpath.sbr"
+".\Debug\game.sbr"
+".\Debug\gamemain.sbr"
+".\Debug\graph.sbr"
+".\Debug\interface.sbr"
+".\Debug\macro.sbr"
+".\Debug\system.sbr"
+".\Debug\taskman.sbr"
+".\Debug\utility.sbr"
+".\Debug\Weather.sbr"
+".\Debug\Jpg.sbr"
+".\Debug\chat_msg.sbr"
+".\Debug\net.sbr"
+".\Debug\net_msg.sbr"]
+Creating command line "bscmake.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP4E.tmp"
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+main.exe - 0 error(s), 1 warning(s)
+</pre>
+</body>
+</html>

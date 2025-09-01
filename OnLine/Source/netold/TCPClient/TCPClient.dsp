@@ -1,0 +1,197 @@
+# Microsoft Developer Studio Project File - Name="TCPClient" - Package Owner=<4>
+# Microsoft Developer Studio Generated Build File, Format Version 6.00
+# ** DO NOT EDIT **
+
+# TARGTYPE "Win32 (x86) Dynamic-Link Library" 0x0102
+
+CFG=TCPClient - Win32 Debug
+!MESSAGE This is not a valid makefile. To build this project using NMAKE,
+!MESSAGE use the Export Makefile command and run
+!MESSAGE 
+!MESSAGE NMAKE /f "TCPClient.mak".
+!MESSAGE 
+!MESSAGE You can specify a configuration when running NMAKE
+!MESSAGE by defining the macro CFG on the command line. For example:
+!MESSAGE 
+!MESSAGE NMAKE /f "TCPClient.mak" CFG="TCPClient - Win32 Debug"
+!MESSAGE 
+!MESSAGE Possible choices for configuration are:
+!MESSAGE 
+!MESSAGE "TCPClient - Win32 Release" (based on "Win32 (x86) Dynamic-Link Library")
+!MESSAGE "TCPClient - Win32 Debug" (based on "Win32 (x86) Dynamic-Link Library")
+!MESSAGE 
+
+# Begin Project
+# PROP AllowPerConfigDependencies 0
+# PROP Scc_ProjName ""
+# PROP Scc_LocalPath ""
+CPP=cl.exe
+MTL=midl.exe
+RSC=rc.exe
+
+!IF  "$(CFG)" == "TCPClient - Win32 Release"
+
+# PROP BASE Use_MFC 0
+# PROP BASE Use_Debug_Libraries 0
+# PROP BASE Output_Dir "Release"
+# PROP BASE Intermediate_Dir "Release"
+# PROP BASE Target_Dir ""
+# PROP Use_MFC 0
+# PROP Use_Debug_Libraries 0
+# PROP Output_Dir "..\output\Release"
+# PROP Intermediate_Dir "..\intermediate\Release\TCPClient"
+# PROP Ignore_Export_Lib 0
+# PROP Target_Dir ""
+# ADD BASE CPP /nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "TCPCLIENT_EXPORTS" /Yu"stdafx.h" /FD /c
+# ADD CPP /nologo /MT /W3 /GX /O2 /I "../../public/valve" /I "../../public" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "TCPCLIENT_EXPORTS" /FR /Yu"stdafx.h" /FD /c
+# ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /win32
+# ADD MTL /nologo /D "NDEBUG" /mktyplib203 /win32
+# ADD BASE RSC /l 0x804 /d "NDEBUG"
+# ADD RSC /l 0x804 /d "NDEBUG"
+BSC32=bscmake.exe
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+LINK32=link.exe
+# ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /dll /machine:I386
+# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /dll /machine:I386 /out:"..\output\Release/client_net.dll"
+# Begin Custom Build
+TargetPath=\WAR\src_main\net\output\Release\client_net.dll
+InputPath=\WAR\src_main\net\output\Release\client_net.dll
+SOURCE="$(InputPath)"
+
+BuildCmds= \
+	if exist ..\..\..\bin\client_net.dll attrib -r ..\..\..\bin\client_net.dll \
+	copy $(TargetPath) ..\..\..\bin\client_net.dll \
+	if exist ..\..\..\server_bin\client_net.dll attrib -r ..\..\..\server_bin\client_net.dll \
+	copy $(TargetPath) ..\..\..\server_bin\client_net.dll \
+	
+
+"..\..\..\bin\client_net.dll" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+   $(BuildCmds)
+
+"..\..\..\server_bin\client_net.dll" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+   $(BuildCmds)
+# End Custom Build
+
+!ELSEIF  "$(CFG)" == "TCPClient - Win32 Debug"
+
+# PROP BASE Use_MFC 0
+# PROP BASE Use_Debug_Libraries 1
+# PROP BASE Output_Dir "Debug"
+# PROP BASE Intermediate_Dir "Debug"
+# PROP BASE Target_Dir ""
+# PROP Use_MFC 0
+# PROP Use_Debug_Libraries 1
+# PROP Output_Dir "..\output\Debug"
+# PROP Intermediate_Dir "..\intermediate\Debug\TCPClient"
+# PROP Ignore_Export_Lib 0
+# PROP Target_Dir ""
+# ADD BASE CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "TCPCLIENT_EXPORTS" /Yu"stdafx.h" /FD /GZ /c
+# ADD CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /I "../../public/valve" /I "../../public" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "TCPCLIENT_EXPORTS" /FR /Yu"stdafx.h" /FD /GZ /c
+# ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
+# ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
+# ADD BASE RSC /l 0x804 /d "_DEBUG"
+# ADD RSC /l 0x804 /d "_DEBUG"
+BSC32=bscmake.exe
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+LINK32=link.exe
+# ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /dll /debug /machine:I386 /pdbtype:sept
+# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /dll /debug /machine:I386 /out:"..\output\Debug/client_net.dll" /pdbtype:sept
+# Begin Custom Build
+TargetPath=\WAR\src_main\net\output\Debug\client_net.dll
+InputPath=\WAR\src_main\net\output\Debug\client_net.dll
+SOURCE="$(InputPath)"
+
+BuildCmds= \
+	if exist ..\..\..\bin\client_net.dll attrib -r ..\..\..\bin\client_net.dll \
+	copy $(TargetPath) ..\..\..\bin\client_net.dll \
+	if exist ..\..\..\server_bin\client_net.dll attrib -r ..\..\..\server_bin\client_net.dll \
+	copy $(TargetPath) ..\..\..\server_bin\client_net.dll \
+	
+
+"..\..\..\bin\client_net.dll" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+   $(BuildCmds)
+
+"..\..\..\server_bin\client_net.dll" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+   $(BuildCmds)
+# End Custom Build
+
+!ENDIF 
+
+# Begin Target
+
+# Name "TCPClient - Win32 Release"
+# Name "TCPClient - Win32 Debug"
+# Begin Group "Source Files"
+
+# PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
+# Begin Source File
+
+SOURCE=.\ClientNet.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\public\valve\interface.cpp
+# SUBTRACT CPP /YX /Yc /Yu
+# End Source File
+# Begin Source File
+
+SOURCE=.\StdAfx.cpp
+# ADD CPP /Yc"stdafx.h"
+# End Source File
+# Begin Source File
+
+SOURCE=.\TCPClient.cpp
+# End Source File
+# End Group
+# Begin Group "Header Files"
+
+# PROP Default_Filter "h;hpp;hxx;hm;inl"
+# Begin Source File
+
+SOURCE=.\ClientNet.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\public\net\IClientNet.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\StdAfx.h
+# End Source File
+# End Group
+# Begin Group "Resource Files"
+
+# PROP Default_Filter "ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"
+# End Group
+# Begin Source File
+
+SOURCE=.\ReadMe.txt
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\lib\utillib.lib
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\lib\public\vstdlib.lib
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\lib\UGClass.lib
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\lib\UGPlat_lib.lib
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\lib\zlib.lib
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\lib\public\tier0.lib
+# End Source File
+# End Target
+# End Project

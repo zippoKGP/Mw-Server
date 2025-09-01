@@ -1,0 +1,65 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Chat - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP46.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "..\engine" /I "..\dx9sdk\include" /I "..\public" /I "..\rayssdk\include" /I "..\public\valve" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /Fp"Debug/Chat.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"G:\2D\神界\神界OnLine\神界Source\Chat\Chat.cpp"
+"G:\2D\神界\神界OnLine\神界Source\Chat\ChatData.cpp"
+"G:\2D\神界\神界OnLine\神界Source\Chat\ChatFace.cpp"
+"G:\2D\神界\神界OnLine\神界Source\Chat\ChatPanel.cpp"
+"G:\2D\神界\神界OnLine\神界Source\Chat\UGDraw.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP46.tmp" 
+Creating command line "link.exe -lib /nologo /out:"..\lib\Chat.lib"  ".\Debug\Chat.obj" ".\Debug\ChatData.obj" ".\Debug\ChatFace.obj" ".\Debug\ChatPanel.obj" ".\Debug\UGDraw.obj" "
+<h3>Output Window</h3>
+Compiling...
+Chat.cpp
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(290) : error C2061: syntax error : identifier 'T'
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(291) : error C2146: syntax error : missing ';' before identifier 'WordSwapC'
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(291) : error C2433: 'T' : 'inline' not permitted on data declarations
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(291) : error C2501: 'T' : missing storage-class or type specifiers
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(291) : error C2059: syntax error : ';'
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(291) : fatal error C1903: unable to recover from previous error(s); stopping compilation
+ChatData.cpp
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(290) : error C2061: syntax error : identifier 'T'
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(291) : error C2146: syntax error : missing ';' before identifier 'WordSwapC'
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(291) : error C2433: 'T' : 'inline' not permitted on data declarations
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(291) : error C2501: 'T' : missing storage-class or type specifiers
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(291) : error C2059: syntax error : ';'
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(291) : fatal error C1903: unable to recover from previous error(s); stopping compilation
+ChatFace.cpp
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(290) : error C2061: syntax error : identifier 'T'
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(291) : error C2146: syntax error : missing ';' before identifier 'WordSwapC'
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(291) : error C2433: 'T' : 'inline' not permitted on data declarations
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(291) : error C2501: 'T' : missing storage-class or type specifiers
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(291) : error C2059: syntax error : ';'
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(291) : fatal error C1903: unable to recover from previous error(s); stopping compilation
+ChatPanel.cpp
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(290) : error C2061: syntax error : identifier 'T'
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(291) : error C2146: syntax error : missing ';' before identifier 'WordSwapC'
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(291) : error C2433: 'T' : 'inline' not permitted on data declarations
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(291) : error C2501: 'T' : missing storage-class or type specifiers
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(291) : error C2059: syntax error : ';'
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(291) : fatal error C1903: unable to recover from previous error(s); stopping compilation
+UGDraw.cpp
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(290) : error C2061: syntax error : identifier 'T'
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(291) : error C2146: syntax error : missing ';' before identifier 'WordSwapC'
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(291) : error C2433: 'T' : 'inline' not permitted on data declarations
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(291) : error C2501: 'T' : missing storage-class or type specifiers
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(291) : error C2059: syntax error : ';'
+g:\2d\神界\神界online\神界source\public\valve\tier0\platform.h(291) : fatal error C1903: unable to recover from previous error(s); stopping compilation
+Error executing cl.exe.
+
+
+
+<h3>Results</h3>
+chat.lib - 30 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
